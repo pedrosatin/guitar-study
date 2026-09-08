@@ -84,3 +84,13 @@ A navegação é montada por `shared/shell.js` a partir de `shared/catalog.js`. 
 Para contribuir, crie uma branch, implemente a alteração e execute os testes afetados. Mudanças em componentes compartilhados devem passar por `npm test` e `npm run test:browser`. Use `npm run test:visual` para conferir o percurso entre páginas em desktop e mobile emulado.
 
 Os testes usam perfis de navegador descartáveis. Áudio e câmera são exercitados com dados sintéticos; a precisão com instrumento real e a compreensão das instruções precisam de validação com pessoas.
+
+## Deploy
+
+Acesse https://pedrosatin.github.io/guitar-study/.
+
+O GitHub Actions publica automaticamente cada push na branch `main`. Também é possível executar o workflow "Deploy GitHub Pages" manualmente. O repositório permanece privado; o site e seus arquivos de execução são públicos.
+
+O script `python3 scripts/package-site.py` prepara `_site/` apenas com arquivos rastreados da aplicação, em `index.html`, `shared/` e `poc/`. Não há compilação, backend ou banco de dados no servidor. Para incluir novos recursos, adicione-os ao Git e confira as extensões aceitas pelo script. O diretório `_site/` é gerado e ignorado pelo Git.
+
+GitHub Pages fornece HTTPS. Microfone e câmera continuam sujeitos à permissão do navegador. O progresso fica no navegador de cada pessoa; os registros feitos em localhost não são transferidos para o site publicado.

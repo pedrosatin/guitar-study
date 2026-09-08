@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const {mkdirSync, writeFileSync} = require('node:fs');
 const {chromium} = require('playwright');
-const routes = ['', 'm1-theory-foundation', 'm2-chords-diagram', 'm3-chordpro-player', 'm4-pitch-detect', 'm5-mediapipe-mirror', 'm6-fretdetection-marks', 'm7-onset-rhythm', 'm8-lesson-curator'];
+const routes = ['', 'm1-theory-foundation', 'm2-chords-diagram', 'm3-chordpro-player', 'm4-pitch-detect', 'm5-mediapipe-mirror', 'm6-fretdetection-marks', 'm7-onset-rhythm', 'm8-lesson-curator','m9-audio-tabs'];
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:4173';
 const output = 'test-results/frontend-after';
 function luminance(hex) {
@@ -105,6 +105,6 @@ function contrast(a, b) {
     assert.deepEqual(errors, []);
     assert.deepEqual(failures, []);
     writeFileSync(`${output}/verification.json`, JSON.stringify(report, null, 2));
-    console.log('PASS: common navigation, keyboard disclosure/skip, nine routes/four widths, CSS zoom/reflow, token contrast, media geometry and modal isolation.');
+    console.log('PASS: common navigation, keyboard disclosure/skip, ten routes/four widths, CSS zoom/reflow, token contrast, media geometry and modal isolation.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

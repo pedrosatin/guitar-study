@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Áudio para tablatura | Estudo de violão</title><link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../shared/study.css"><link rel="stylesheet" href="style.css">
+<script defer src="../../shared/catalog.js"></script><script defer src="../../shared/progress.js"></script>
+<script defer src="../../shared/navigation.js"></script><script defer src="../../shared/practice-log.js"></script><script defer src="../../shared/shell.js"></script>
+<script defer src="tablature.js"></script><script defer src="app.js"></script>
+</head>
+<body class="study-app study-module" data-module="m9">
+<main class="study-content">
+<header class="page-heading"><p class="eyebrow">Áudio para tablatura · Experimental</p><h1>Ouça, transcreva e experimente no braço</h1>
+<p>Escolha um trecho de guitarra ou violão e receba uma tablatura para revisar. Comece com poucas notas, tocadas uma por vez, com som limpo e sem outros instrumentos.</p></header>
+<section class="study-half" aria-labelledby="source-title"><h2 id="source-title">1. Escolha o áudio</h2>
+<label for="audio-file">Abrir MP3, WAV ou outro áudio compatível</label><input id="audio-file" type="file" accept="audio/*" aria-describedby="file-help">
+<p id="file-help" class="muted">Até 20 MB e 5 minutos por arquivo. Você escolhe até 30 segundos para analisar.</p>
+<div class="controls"><button id="record" type="button">Gravar microfone</button><button id="stop-record" type="button" hidden>Parar gravação</button><button id="demo" type="button">Experimentar exemplo</button></div>
+<p id="record-status" role="status">A gravação para em 30 segundos ou ao sair desta aba.</p>
+<p class="muted">O áudio fica neste navegador. O modelo é baixado do próprio site ao transcrever. Nenhum áudio é enviado ou salvo automaticamente.</p>
+</section>
+<section class="study-half" aria-labelledby="clip-title"><h2 id="clip-title">2. Selecione um trecho</h2>
+<p id="source-name">Abra um arquivo, grave ou experimente o exemplo.</p><audio id="original" controls hidden aria-label="Áudio original"></audio>
+<form id="transcribe-form">
+<fieldset id="clip-controls" disabled><legend>Trecho e região do braço</legend>
+<div class="clip-fields"><label>Início em segundos<input id="clip-start" type="number" min="0" value="0" step="0.1" required></label><label>Duração em segundos<input id="clip-duration" type="number" min="0.5" max="30" value="10" step="0.1" required></label></div>
+<label for="max-fret">Sugerir posições até a casa</label><select id="max-fret"><option value="12">12 · região inicial</option><option value="20">20 · braço ampliado</option></select>
+<p class="muted">Afinação padrão: Mi, Lá, Ré, Sol, Si, Mi. Os tempos do resultado começam no início do trecho escolhido.</p>
+<div class="controls"><button id="preview" type="button">Ouvir trecho</button><button id="transcribe" class="primary" type="submit">Gerar tablatura</button></div>
+</fieldset></form>
+<button id="cancel" type="button" hidden>Cancelar análise</button><progress id="analysis-progress" max="100" value="0" hidden aria-label="Progresso da análise"></progress>
+<p id="status" role="status" aria-atomic="true">Aguardando áudio.</p>
+</section>
+<section aria-labelledby="result-title"><h2 id="result-title">3. Confira a tablatura sugerida</h2>
+<p id="empty-result">Sua tablatura aparecerá aqui. Você poderá ouvir as notas reconhecidas, ajustar cordas e casas e baixar o resultado.</p>
+<div id="result" hidden><p id="result-summary" role="status"></p>
+<p>Na tablatura, a linha de cima é a 1ª corda, a mais fina. Os números são casas; 0 é corda solta. Os tempos estão em segundos, sem divisão em compassos.</p>
+<div class="controls"><button id="play-notes" type="button">Ouvir notas reconhecidas</button><button id="stop-audio" type="button">Parar áudio</button><button id="export-tab" type="button">Baixar tablatura .txt</button><button id="export-midi" type="button">Baixar notas .mid</button></div>
+<pre id="tab" tabindex="0" aria-label="Tablatura sugerida; role horizontalmente se necessário"></pre>
+<p id="review-status" role="status"></p>
+<details><summary>Revisar notas e posições</summary><p>Uma nota pode existir em várias cordas. Escolha outra posição ou remova uma nota extra. A posição original da mão e técnicas como bends não são identificadas nesta versão.</p><p>Se faltar uma nota ou a altura estiver errada, experimente um trecho menor ou uma gravação mais limpa. Esta versão permite trocar posições e excluir notas.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Notas reconhecidas"><table><thead><tr><th scope="col">Tempo</th><th scope="col">Nota</th><th scope="col">Duração</th><th scope="col">Corda e casa</th><th scope="col">Revisão</th></tr></thead><tbody id="notes"></tbody></table></div></details>
+</div>
+</section>
+<section aria-labelledby="limits-title"><h2 id="limits-title">Como conseguir um resultado melhor</h2><p>Afine o instrumento, grave perto do microfone e comece com 5 a 10 segundos. Acordes, distorção, ruído e banda completa podem produzir notas extras ou ausentes. A tablatura é uma sugestão de posições, não uma confirmação de como o músico tocou.</p><p>A análise pode levar alguns minutos em celulares. Você pode cancelar a qualquer momento. O exemplo usa notas sintetizadas para demonstrar o fluxo; ele não mede a precisão com um instrumento real.</p><p>Reconhecimento com <a href="https://github.com/spotify/basic-pitch-ts">Basic Pitch, do Spotify</a>. <a href="basic-pitch-license.txt">Licença do Basic Pitch</a> e <a href="tensorflow-license.txt">licença do TensorFlow.js</a>.</p></section>
+</main></body></html>

@@ -5,7 +5,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parent.parent
 DESTINATION = ROOT / "_site"
-EXTENSIONS = {".html", ".css", ".js", ".json", ".svg", ".png", ".jpg", ".webp", ".woff2", ".mp3", ".wav"}
+EXTENSIONS = {".html", ".css", ".js", ".json", ".svg", ".png", ".jpg", ".webp", ".woff2", ".mp3", ".wav", ".bin", ".txt"}
 
 
 def main():

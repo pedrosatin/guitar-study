@@ -10,12 +10,13 @@
     m4: 'M2 12h3l3-8 5 16 3-8h6',
     m5: 'M3 7h4l2-3h6l2 3h4v14H3ZM16 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
     m6: 'M2 6h20v12H2ZM7 6v12M13 6v12M18 6v12M2 12h20',
+    m9: 'M3 6h18M3 12h18M3 18h18M7 3v6M12 9v6M17 15v6',
     m7: 'M5 21 10 3h4l5 18ZM12 16l7-10M9 17h6'
   };
   const groups = [
     { title: 'Aprender', ids: ['m1', 'm8'] },
     { title: 'Praticar', ids: ['m2', 'm3', 'm7'] },
-    { title: 'Explorar o instrumento', ids: ['m4', 'm5', 'm6'] }
+    { title: 'Explorar o instrumento', ids: ['m4', 'm5', 'm6', 'm9'] }
   ];
   window.mountStudyNavigation = function (root, current) {
     const nav = document.createElement('nav');

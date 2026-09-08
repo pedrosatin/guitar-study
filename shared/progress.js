@@ -4,7 +4,7 @@
   let memory = { goal: 15, sessions: [] };
   let storageAvailable = true;
   function validSession(s) {
-    return s && typeof s.id === 'string' && /^m[1-8]$/.test(s.moduleId) &&
+    return s && typeof s.id === 'string' && /^m[1-9]$/.test(s.moduleId) &&
       Number.isInteger(s.minutes) && s.minutes > 0 && s.minutes <= 180 &&
       typeof s.date === 'string' && Number.isFinite(Date.parse(s.date)) && typeof s.note === 'string';
   }

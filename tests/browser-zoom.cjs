@@ -5,7 +5,7 @@ const {mkdirSync, writeFileSync} = require('node:fs');
 const {chromium} = require('playwright');
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:4173';
 const output = 'test-results/technical-validation';
-const routes = ['', 'm1-theory-foundation', 'm2-chords-diagram', 'm3-chordpro-player', 'm4-pitch-detect', 'm5-mediapipe-mirror', 'm6-fretdetection-marks', 'm7-onset-rhythm', 'm8-lesson-curator'];
+const routes = ['', 'm1-theory-foundation', 'm2-chords-diagram', 'm3-chordpro-player', 'm4-pitch-detect', 'm5-mediapipe-mirror', 'm6-fretdetection-marks', 'm7-onset-rhythm', 'm8-lesson-curator','m9-audio-tabs'];
 
 (async () => {
   mkdirSync(output, {recursive: true});

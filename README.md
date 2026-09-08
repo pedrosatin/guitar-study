@@ -1,6 +1,6 @@
 # Estudo de violão
 
-Aplicação estática para aprender e praticar violão. O painel inicial reúne oito módulos, uma rotina sugerida de 15 minutos, meta diária e diário de prática. O projeto usa HTML, CSS e JavaScript, sem framework ou etapa de build.
+Aplicação estática para aprender e praticar violão. O painel inicial reúne nove módulos, uma rotina sugerida de 15 minutos, meta diária e diário de prática. O projeto usa HTML, CSS e JavaScript, sem framework. Os arquivos de execução já estão incluídos no repositório.
 
 ## Executar
 
@@ -33,6 +33,7 @@ Não abra os HTML diretamente por `file://`: os módulos JavaScript e o acesso �
 | [Mapa do braço](poc/m6-fretdetection-marks/index.html) | Contar casas no desenho, conferir cinco posições e marcar referências com câmera opcional |
 | [Treino de ritmo](poc/m7-onset-rhythm/index.html) | Praticar por 30 segundos com preparação e conferir velocidade e regularidade por toques ou microfone |
 | [Plano de estudo](poc/m8-lesson-curator/index.html) | Organizar sessões de 5, 10 ou 20 minutos, retomar aulas e anotar o que repetir |
+| [Áudio para tablatura](poc/m9-audio-tabs/index.html) | Abrir ou gravar áudio, transcrever até 30 segundos, revisar posições e exportar TXT/MIDI |
 
 Comece por Fundamentos e Plano de estudo. Use o afinador antes de tocar e pratique trocas em um andamento em que consiga manter o som limpo.
 
@@ -56,7 +57,7 @@ Dados ficam no armazenamento local deste navegador e desta origem. Limpar os dad
 
 ## Testes
 
-Use Node.js 20 ou superior e npm para as ferramentas de teste. A aplicação não exige build nem dependências em produção.
+Use Node.js 20 ou superior e npm para as ferramentas de teste. A aplicação funciona com os recursos já incluídos. O reconhecedor tem um bundle JavaScript gerado e um modelo local.
 
 ```sh
 npm ci
@@ -64,6 +65,7 @@ npm test
 # Com o servidor ligado em outro terminal e Chromium instalado:
 npm run test:browser
 npm run test:a11y
+npm run test:transcriber
 # Opcional, sessão gráfica Linux/X11 com xdotool:
 npm run test:zoom
 ```
@@ -73,7 +75,7 @@ Os testes de navegador usam `/usr/bin/chromium`. Para outro caminho, defina `CHR
 ## Estrutura e desenvolvimento
 
 - `index.html`: painel, meta e histórico de prática.
-- `poc/`: oito módulos independentes, com HTML, estilos, scripts e recursos próprios.
+- `poc/`: nove módulos independentes, com HTML, estilos, scripts e recursos próprios.
 - `shared/`: catálogo de módulos, navegação, diário, armazenamento, câmera e estilos comuns.
 - `tests/`: testes de lógica, áudio e integração no navegador.
 
@@ -94,3 +96,21 @@ O GitHub Actions publica automaticamente cada push na branch `main`. Também é 
 O script `python3 scripts/package-site.py` prepara `_site/` apenas com arquivos rastreados da aplicação, em `index.html`, `shared/` e `poc/`. Não há compilação, backend ou banco de dados no servidor. Para incluir novos recursos, adicione-os ao Git e confira as extensões aceitas pelo script. O diretório `_site/` é gerado e ignorado pelo Git.
 
 GitHub Pages fornece HTTPS. Microfone e câmera continuam sujeitos à permissão do navegador. O progresso fica no navegador de cada pessoa; os registros feitos em localhost não são transferidos para o site publicado.
+
+## Transcrição experimental
+
+O módulo `poc/m9-audio-tabs/` usa Basic Pitch 1.0.1 e TensorFlow.js 3.21.0, com licença Apache-2.0. `engine.js` e `model/` são servidos pelo próprio site somente ao iniciar a análise. A execução usa JavaScript e CPU em um Web Worker, sem WebAssembly ou envio de áudio. Cada análise encerra o worker para liberar o modelo e os tensores.
+
+Para regenerar o bundle e copiar o modelo após mudanças no motor:
+
+```sh
+npm ci
+npm run build:transcriber
+npm run test:transcriber
+```
+
+O código-fonte do worker fica em `scripts/transcription-worker.js`; o build fica em `scripts/build-transcriber.cjs`. Versione o bundle gerado, o modelo e suas licenças junto com as alterações. O deploy apenas copia esses arquivos.
+
+Arquivos aceitos dependem dos codecs do navegador, até 20 MB e 5 minutos. A análise usa um trecho de 0,5 a 30 segundos convertido para mono a 22050 Hz. Há cancelamento e limite de 3 minutos de processamento. A gravação para em 30 segundos, ao ocultar a aba ou sair da página. Áudio e resultados não são persistidos; exporte antes de fechar.
+
+`tablature.js` sugere posições na afinação padrão, evita ocupar uma corda com notas sobrepostas e deixa notas sem posição disponíveis para revisão. Mudanças manuais conflitantes são sinalizadas. A revisão permite trocar corda/casa e excluir notas; não inclui inserção de notas nem edição de altura/duração. TXT exibe segundos sem notação rítmica; MIDI preserva os tempos detectados, sem inferir compassos ou técnicas de execução. Banda completa não passa por separação de instrumentos.

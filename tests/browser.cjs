@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const { mkdirSync } = require('node:fs');
 const { chromium } = require('playwright');
-const modules = ['m1-theory-foundation','m2-chords-diagram','m3-chordpro-player','m4-pitch-detect','m5-mediapipe-mirror','m6-fretdetection-marks','m7-onset-rhythm','m8-lesson-curator'];
+const modules = ['m1-theory-foundation','m2-chords-diagram','m3-chordpro-player','m4-pitch-detect','m5-mediapipe-mirror','m6-fretdetection-marks','m7-onset-rhythm','m8-lesson-curator','m9-audio-tabs'];
 (async () => {
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
   const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:4173';
@@ -43,6 +43,6 @@ const modules = ['m1-theory-foundation','m2-chords-diagram','m3-chordpro-player'
     assert.match(await page.locator('#today-total').textContent(), /0 de 20/);
     assert.deepEqual(errors, [], 'uncaught JavaScript errors');
     assert.deepEqual(failures, [], 'failed local resources');
-    console.log('PASS: all 9 pages, four viewport widths, navigation, diary, goal persistence, export and delete; no JS errors or failed local resources.');
+    console.log('PASS: all 10 pages, four viewport widths, navigation, diary, goal persistence, export and delete; no JS errors or failed local resources.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

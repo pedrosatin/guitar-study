@@ -1,0 +1,15 @@
+[data-module=m9] label { display: block; }
+[data-module=m9] input[type=file] { width: 100%; margin-top: 8px; }
+[data-module=m9] fieldset { padding: 16px; margin: 16px 0; }
+[data-module=m9] fieldset label { margin-bottom: 12px; }
+[data-module=m9] input[type=number], [data-module=m9] select { width: 100%; display: block; margin-top: 8px; }
+.clip-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+[data-module=m9] audio, [data-module=m9] progress { display: block; width: 100%; margin: 16px 0; }
+[data-module=m9] progress { accent-color: var(--study-accent); }
+[data-module=m9] pre { padding: 20px; background: var(--study-bg); border: 1px solid var(--study-border); border-radius: 8px; overflow-x: auto; font: 14px/1.8 monospace; white-space: pre; }
+.table-scroll { overflow-x: auto; }
+[data-module=m9] table { width: 100%; border-collapse: collapse; text-align: left; }
+[data-module=m9] td, [data-module=m9] th { padding: 12px 8px; border-bottom: 1px solid var(--study-border); white-space: nowrap; }
+[data-module=m9] td select { min-width: 170px; }
+[data-module=m9] tr[data-conflict=true] td { border-bottom-color: var(--study-accent); }
+@media (max-width: 400px) { .clip-fields { grid-template-columns: 1fr; gap: 0; } }

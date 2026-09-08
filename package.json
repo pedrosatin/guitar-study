@@ -2,16 +2,20 @@
   "name": "guitar-study",
   "version": "0.1.0",
   "private": true,
-  "description": "Exercícios de violão no navegador",
+  "description": "Exerc\u00edcios de viol\u00e3o no navegador",
   "scripts": {
     "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
     "test": "node --test tests/progress.test.cjs tests/metronome.cjs && node tests/audio.cjs",
     "test:browser": "node tests/browser.cjs && node tests/foundations.cjs && node tests/learning.cjs && node tests/chord-drill.cjs && node tests/chords-page.cjs && node tests/rhythm-page.cjs && node tests/tuner-page.cjs && node tests/vision.cjs && node tests/mirror-page.cjs && node tests/camera-lifecycle.cjs && node tests/map-page.cjs && node tests/map-camera.cjs && node tests/onset-page.cjs && node tests/rhythm-microphone.cjs && node tests/plan-page.cjs && node tests/frontend.cjs",
     "test:visual": "node tests/frontend.cjs && node tests/visual-journey.cjs",
     "test:a11y": "node tests/accessibility.cjs",
-    "test:zoom": "node tests/browser-zoom.cjs"
+    "test:zoom": "node tests/browser-zoom.cjs",
+    "build:transcriber": "node scripts/build-transcriber.cjs",
+    "test:transcriber": "node --test tests/tablature.test.cjs && node tests/transcription.cjs && node tests/transcription-lifecycle.cjs"
   },
   "devDependencies": {
+    "@spotify/basic-pitch": "1.0.1",
+    "esbuild": "0.25.12",
     "playwright": "1.63.0"
   }
 }

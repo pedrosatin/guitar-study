@@ -1,0 +1,47 @@
+:root {
+  color-scheme: dark;
+  --study-bg: #171916;
+  --study-panel: #20241f;
+  --study-raised: #2a3028;
+  --study-border: #505b4c;
+  --study-control-border: #7b8972;
+  --study-text: #f1f1e9;
+  --study-muted: #b7c0b0;
+  --study-accent: #e8bd78;
+  --study-accent-hover: #f5d299;
+  --study-ink: #211b12;
+  --study-ok: #9bd6ac;
+  --study-error: #ffb4a8;
+  --study-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --study-display: Georgia, "Times New Roman", serif;
+  --study-radius: 12px;
+  --study-control-radius: 6px;
+  --study-content-width: 1200px;
+  --study-sidebar: 232px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  /* Compatibility aliases for exercise-specific CSS and SVG. */
+  --bg: var(--study-bg);
+  --fg: var(--study-text);
+  --text: var(--study-text);
+  --muted: var(--study-muted);
+  --accent: var(--study-accent);
+  --accent-2: var(--study-accent-hover);
+  --yellow: var(--study-accent);
+  --green: var(--study-ok);
+  --ok: var(--study-ok);
+  --bad: var(--study-error);
+  --warn: var(--study-accent);
+  --border: var(--study-border);
+  --panel: var(--study-panel);
+  --card: var(--study-panel);
+  --bg-elev: var(--study-panel);
+  --bg-elev2: var(--study-raised);
+  --chip: var(--study-raised);
+  --hover: var(--study-raised);
+}

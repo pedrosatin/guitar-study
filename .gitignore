@@ -1,0 +1,39 @@
+# Dependencies and generated test output
+node_modules/
+test-results/
+playwright-report/
+*.log
+
+# Local documentation; keep only the development README
+*.md
+!/README.md
+/docs/
+/graphify-out/
+/.fallowrc.json
+/.local-backups/
+/.codex/
+/.agents/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+
+# Local workflow and generated artifacts
+.fallowrc.json
+fallow.md
+graphify-out/
+context.md
+POC-PLAN.md
+POC-RESULT.md
+docs/01-analise-viabilidade.md
+docs/03-scaffold-base.md
+docs/04-modulos-e-validacao.md
+docs/etapa-frontend.md
+docs/historico-revisao-pedagogica.md
+docs/papel-especialista-frontend.md
+docs/proximos-passos-validacao.md
+docs/versionamento-local.md

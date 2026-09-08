@@ -1,0 +1,10 @@
+/* Fretboard and manual mapping. Camera geometry is shared in shared/media.css. */
+#status, .hint { color: var(--muted); }
+.target { font-size: 1.5rem; font-weight: 700; }
+.diagram-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+#fretboard { display: block; width: 100%; min-width: 680px; }
+#practice-hint { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 16px 0; }
+.practice-panel .controls { margin-top: 12px; }
+.camera-workspace { display: grid; gap: 24px; align-items: start; }
+.camera-workspace > div { min-width: 0; }
+@media (min-width: 960px) { .camera-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }

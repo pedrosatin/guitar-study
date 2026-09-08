@@ -1,0 +1,40 @@
+/* Page composition. All reading order follows the DOM, including on mobile. */
+body.study-app main.study-content {
+  max-width: var(--study-content-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 32px 48px;
+  overflow-wrap: anywhere;
+}
+.study-app .page-heading { padding: 0 0 28px; margin: 0 0 4px; border: 0; text-align: left; }
+.study-app .page-heading h1 { margin: 8px 0 16px; }
+.study-app .page-heading p { max-width: 72ch; color: var(--study-muted); font-size: 1rem; }
+.study-app .page-heading .eyebrow { color: var(--study-accent); font-size: .75rem; }
+.study-app .page-heading.app { max-width: none; width: 100%; align-items: center; }
+.study-app .page-heading.app h1 { font-size: clamp(2rem, 3.4vw, 3rem); }
+.study-app .page-heading .sub { font-size: 1rem; color: var(--study-muted); }
+.study-app main.study-content > section {
+  border: 1px solid var(--study-border);
+  background: var(--study-panel);
+  border-radius: var(--study-radius);
+  padding: 24px;
+  margin: 0;
+  min-width: 0;
+  scroll-margin-top: 24px;
+}
+.study-app main.study-content > :is(header, section, details, div, p) { min-width: 0; }
+.study-module main.study-content { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+.study-app .lesson-route { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.study-app .lesson-route a, .study-app .page-heading nav a { display: inline-block; padding: 8px 0; min-height: 44px; }
+.study-app main.study-content > .lesson-intro { background: transparent; border: 0; border-left: 3px solid var(--study-accent); border-radius: 0; }
+.study-app .diagram-wrap svg { max-height: 480px; }
+@media (min-width: 960px) {
+  .study-module main.study-content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .study-module main.study-content > * { grid-column: 1 / -1; }
+  .study-module main.study-content > .study-half { grid-column: auto; }
+}
+@media (max-width: 700px) {
+  body.study-app main.study-content { padding: 24px 16px 32px; gap: 16px; }
+  .study-app main.study-content > section { padding: 20px 16px; }
+  .study-app .page-heading { padding-bottom: 16px; }
+}

@@ -1,0 +1,83 @@
+const assert = require("node:assert/strict");
+const { chromium } = require("playwright");
+(async () => {
+ const browser = await chromium.launch({ executablePath:"/usr/bin/chromium", args:["--no-sandbox"] });
+ try {
+  const page = await browser.newPage(); const errors=[];
+  page.on("pageerror", e=>errors.push(e.message));
+  const url = "http://127.0.0.1:4173/poc/m8-lesson-curator/";
+  await page.goto(url);
+  await page.locator("#session-minutes").selectOption("5");
+  assert.match(await page.locator("#session-outline").textContent(), /1 min.*3 min.*1 min/);
+  await page.locator("[data-id=lesson-03]").click();
+  assert.match(await page.locator(".lesson-guide").textContent(), /5 minutos/);
+  await page.getByRole("link", {name:"Afinar violão", exact:true}).focus();
+  await page.keyboard.press("Tab");
+  assert.equal(await page.locator("#lesson-note").evaluate(el=>el===document.activeElement),true);
+  await page.locator("#lesson-note").fill("Repetir Em para Am <script>alert(1)</script>");
+  await page.locator(".goal-check input").first().check();
+  await page.keyboard.press("Escape");
+  assert.equal(await page.locator("[data-id=lesson-03]").evaluate(el=>el===document.activeElement),true);
+  await page.reload();
+  assert.equal(await page.locator("#session-minutes").inputValue(), "5");
+  await page.locator("#continue-lesson").click();
+  assert.match(await page.locator("#m-title").textContent(), /Lição 3/);
+  assert.match(await page.locator("#lesson-note").inputValue(), /<script>/);
+  assert.equal(await page.locator(".goal-check input").first().isChecked(), true);
+  for (const c of await page.locator(".goal-check input").all()) await c.check();
+  await page.locator("#m-complete").click();
+  assert.match(await page.locator("#completion-status").textContent(), /Aula concluída/);
+  await page.locator(".goal-check input").first().uncheck();
+  assert.equal(await page.locator("#m-complete").isDisabled(), true);
+  await page.reload(); await page.locator("#continue-lesson").click();
+  assert.equal(await page.locator(".goal-check input").first().isChecked(), false);
+  await page.locator(".count-in").click();
+  assert.equal(await page.locator("#lesson-bpm").isDisabled(), true);
+  await page.locator(".stop").click();
+  assert.equal(await page.locator("#lesson-bpm").isEnabled(), true);
+  for (const width of [320,768,1024,1440]) {
+   await page.setViewportSize({width,height:900});
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+   assert.equal(await page.locator(".modal").evaluate(el=>el.scrollWidth<=el.clientWidth),true);
+  }
+  await page.setViewportSize({width:320,height:800});
+  await page.locator(".modal").evaluate(el=>el.scrollTop=0);
+  await page.screenshot({path:"test-results/plan-lesson-mobile.png"});
+  await page.keyboard.press("Escape");
+  await page.screenshot({path:"test-results/plan-home-mobile.png",fullPage:true});
+  for (let i=1;i<=5;i++) {
+   await page.locator(`[data-id=lesson-0${i}]`).click();
+   for (const c of await page.locator(".goal-check input").all()) await c.check();
+   if ((await page.locator("#m-complete").textContent())!=="Desfazer conclusão") await page.locator("#m-complete").click();
+   await page.keyboard.press("Escape");
+  }
+  assert.match(await page.locator("#progress-label").textContent(), /5 de 5/);
+  assert.match(await page.locator("#next-guidance").textContent(), /cinco aulas/);
+  assert.equal(await page.evaluate(()=>window.GuitarStudy.getState().sessions.length),0);
+  page.once("dialog", d=>d.accept()); await page.locator("#reset-progress").click();
+  assert.match(await page.locator("#progress-label").textContent(), /0 de 5/);
+  await page.locator("[data-id=lesson-03]").click();
+  assert.equal(await page.locator("#lesson-note").inputValue(), "");
+  assert.deepEqual(errors,[]);
+  const blocked = await browser.newPage();
+  await blocked.addInitScript(()=>{Storage.prototype.setItem=()=>{throw new Error("blocked")}; Storage.prototype.getItem=()=>{throw new Error("blocked")};});
+  await blocked.goto(url); await blocked.locator("#continue-lesson").click();
+  await blocked.locator("#lesson-note").fill("Praticar amanhã");
+  assert.match(await blocked.locator("#note-status").textContent(), /sessão/);
+  await blocked.keyboard.press("Escape"); await blocked.locator("#continue-lesson").click();
+  assert.equal(await blocked.locator("#lesson-note").inputValue(),"Praticar amanhã");
+  const corrupt = await browser.newPage();
+  await corrupt.addInitScript(()=>{localStorage.setItem("guitar-study-progress",JSON.stringify({"lesson-01":true,"lesson-02":{}})); localStorage.setItem("guitar-study-plan-v1",JSON.stringify({minutes:999,last:"bad",notes:[]}));});
+  await corrupt.goto(url);
+  assert.match(await corrupt.locator("#progress-label").textContent(),/0 de 5/);
+  assert.equal(await corrupt.locator("#session-minutes").inputValue(),"10");
+  const legacy = await browser.newPage();
+  await legacy.goto(url);
+  await legacy.evaluate(()=>localStorage.setItem("guitar-study-progress",JSON.stringify({"lesson-01":"2026-09-07T12:00:00Z"})));
+  await legacy.reload(); await legacy.locator("[data-id=lesson-01]").click();
+  await legacy.locator(".goal-check input").first().uncheck();
+  await legacy.reload(); await legacy.locator("[data-id=lesson-01]").click();
+  assert.equal(await legacy.locator(".goal-check input:checked").count(),2);
+  console.log("PASS: plan duration, resume, notes, partial checks, completion/reopening, no diary minutes, reset, blocked/corrupt storage and four widths.");
+ } finally { await browser.close(); }
+})().catch(e=>{console.error(e);process.exitCode=1});

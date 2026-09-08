@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treino de ritmo</title><link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script defer src="../../shared/catalog.js"></script><script defer src="../../shared/progress.js"></script><script defer src="../../shared/navigation.js"></script>
+<script defer src="../../shared/practice-log.js"></script>
+<script defer src="../../shared/shell.js"></script>
+<link rel="stylesheet" href="../../shared/study.css">
+</head>
+<body class="study-app study-module" data-module="m7"><main class="study-content rhythm-main">
+<header class="page-heading"><p class="eyebrow">Prática de violão · Ritmo</p><h1>Mantenha uma batida regular</h1><p>Primeiro acompanhe a contagem com um dedo. Depois experimente no violão. Cada rodada tem quatro pulsos de preparação e 30 segundos de prática.</p><a href="#exercise">Ir para o exercício</a></header>
+<section aria-labelledby="learn-title"><h2 id="learn-title">1. Entenda o movimento</h2>
+<p>O <strong>pulso</strong> é uma marca de tempo que se repete com intervalos iguais. Conte em voz alta <strong>1, 2, 3, 4</strong> e volte ao 1. Cada número pede uma batida; a volta ao 1 não tem pausa.</p>
+<p><strong>60 BPM</strong> significa 60 pulsos por minuto: um por segundo. Esses números são a contagem do tempo, sem relação com dedos, cordas ou casas.</p>
+<ol><li><strong>Sem violão:</strong> selecione "Toques na tela". Durante a prática, clique no botão "Marcar batida" a cada número. Com teclado, foque o botão com Tab e pressione e solte Espaço a cada pulso.</li>
+<li><strong>Com violão:</strong> apoie levemente os dedos da mão que fica no braço sobre as cordas, sem apertá-las contra os trastes. Com a outra mão, passe o polegar suavemente pelas cordas, da mais grossa à mais fina. Deve sair um som curto, abafado.</li>
+<li>Volte a mão à posição inicial sem tocar as cordas. Repita o movimento para baixo no próximo número. Não é preciso formar um acorde. Ajuste a posição se houver desconforto.</li></ol>
+<p>Se ainda não reconhece as partes, consulte <a href="../m1-theory-foundation/">Fundamentos</a>. Para ouvir uma referência e praticar contando sem medir, use <a href="../m3-chordpro-player/">Cifras e metrônomo</a>.</p>
+</section>
+<section id="exercise" aria-labelledby="exercise-title" class="study-half"><h2 id="exercise-title">2. Pratique por 30 segundos</h2>
+<label for="mode">Como você vai praticar?</label><select id="mode"><option value="tap">Toques na tela ou teclado</option><option value="guitar">Violão, sem medição</option><option value="mic">Violão com microfone</option></select>
+<p id="mode-help">A medição acompanha seus cliques. Deixe o violão apoiado enquanto usa o botão.</p>
+<label for="target-bpm">Velocidade: <output id="target-value">60</output> BPM</label><input id="target-bpm" type="range" min="40" max="180" value="60" step="1">
+<p class="hint">Comece em 60. Se precisar, experimente 50. O pulso é visual e não emite som.</p>
+<div id="microphone-panel" hidden><p>O microfone usa o áudio apenas nesta página, sem gravar nem enviar. Depois de autorizar, fique em silêncio por um segundo para medir o ruído do ambiente.</p><button id="toggle" type="button">Ligar microfone</button><p id="status" role="status">Microfone desligado.</p>
+<details><summary>Ajustar a detecção ou resolver uma falha</summary><p>Teste algumas batidas antes de iniciar. Cada movimento deve somar uma batida. Se contar ruído ou duas vezes, aumente os limites abaixo. Se ignorar batidas, diminua aos poucos. Para medir novamente o ambiente, desligue e ligue o microfone.</p>
+<label for="sens">Filtro de ruído: <output id="sensVal">2.5</output></label><input id="sens" type="range" min="0.5" max="6" step="0.1" value="2.5">
+<label for="gate">Volume mínimo: <output id="gateVal">0.012</output></label><input id="gate" type="range" min="0.002" max="0.10" step="0.002" value="0.012">
+<p>Se a permissão falhar, confira o acesso ao microfone no navegador. Feche outro aplicativo que esteja usando o dispositivo. Abra a ferramenta em HTTPS ou localhost. Você pode escolher outra forma de praticar acima.</p></details></div>
+<div class="practice-panel"><div class="pulse-row"><span id="pulse" aria-label="Contagem visual do pulso">—</span><div><p id="round-status" role="status" aria-atomic="true">Pronto para começar.</p><p id="remaining">30 segundos de prática após a preparação.</p></div></div>
+<div class="controls"><button id="visual-toggle" class="primary" type="button">Iniciar rodada de 30 s</button><button id="stop-round" type="button" disabled>Interromper rodada</button></div>
+<button id="tap" type="button">Marcar batida</button><p id="tap-help" class="hint">Experimente três toques espaçados antes da rodada, se quiser. A medição será zerada ao iniciar.</p></div>
+</section>
+<section aria-labelledby="result-title" class="study-half"><h2 id="result-title">3. Confira e escolha o próximo passo</h2><div class="reading"><div><strong id="bpm">—</strong><span> BPM medidos</span></div><p>Batidas medidas: <b id="onsetCount">0</b> <span id="dot" aria-hidden="true"></span></p></div>
+<p id="practice-result" role="status" aria-atomic="true">Marque pelo menos três batidas para medir.</p>
+<p class="hint">A estimativa usa os últimos oito intervalos. Ela compara velocidade e regularidade, sem dizer se cada batida coincidiu com o número na tela. Microfone, ruídos e atraso do aparelho podem alterar o resultado.</p>
+<details><summary>Ver os intervalos medidos</summary><p>Barras de alturas parecidas indicam intervalos parecidos. Uma barra mais alta representa mais tempo entre duas batidas. A linha dourada mostra o intervalo esperado na velocidade escolhida.</p><svg id="hist" viewBox="0 0 640 160" role="img" aria-label="Intervalos entre as últimas batidas"><g id="bars"></g><line id="target-line" x1="0" x2="640" stroke="#e6b566" stroke-dasharray="6 4"/></svg><p id="intervalInfo">Ainda sem intervalos.</p></details>
+<button id="reset" type="button">Zerar medição</button>
+<div id="review" hidden><h3>Como foi para você?</h3><label><input type="checkbox"> Consegui continuar a contagem sem parar na volta ao 1.</label><label><input type="checkbox"> Fiz um movimento por pulso, com a mão confortável.</label><p>Se perdeu a contagem, repita em 50 BPM. Se ficou confortável, repita a mesma velocidade com o violão ou pratique um acorde em <a href="../m3-chordpro-player/">Cifras e metrônomo</a>.</p><p>A conclusão indica que o tempo terminou. Confira o que você conseguiu fazer antes de avançar.</p></div>
+<p>A rodada e as marcações são apagadas ao recarregar ou sair. Use "Registrar minha prática" no diário para anotar o tempo que praticou e o que deseja repetir; esta rodada não salva minutos automaticamente.</p>
+<p>Depois, organize sua próxima prática em <a href="../m8-lesson-curator/">Plano de estudo</a>.</p></section>
+</main><script type="module" src="app.js"></script></body></html>

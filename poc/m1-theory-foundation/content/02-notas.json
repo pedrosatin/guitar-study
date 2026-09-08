@@ -1,0 +1,23 @@
+{
+  "id": "02-notas",
+  "titulo": "Nomes das notas",
+  "objetivo": "Consulte os nomes quando precisar. Você pode fazer o primeiro exercício sem decorar esta lista.",
+  "itens": [
+    {
+      "parte": "O que é uma nota?",
+      "descricao": "É um som com uma altura definida. Sons graves parecem mais baixos e encorpados; sons agudos parecem mais finos. Altura é diferente de volume, que indica se o som está forte ou fraco."
+    },
+    {
+      "parte": "Nomes e letras",
+      "descricao": "As notas Dó, Ré, Mi, Fá, Sol, Lá e Si também aparecem como C, D, E, F, G, A e B. Por exemplo, E significa Mi. Essas letras aparecem no afinador e nos nomes dos acordes."
+    },
+    {
+      "parte": "Casas e semitons",
+      "descricao": "Na mesma corda, passar para a casa seguinte em direção ao corpo deixa a nota um pouco mais aguda. Esse passo se chama semitom. A corda solta também sobe um semitom quando você a pressiona na primeira casa."
+    },
+    {
+      "parte": "Sustenido e bemol",
+      "descricao": "O símbolo # significa sustenido e sobe a nota um semitom. O símbolo b significa bemol e desce um semitom. Entre Mi e Fá, e entre Si e Dó, já existe apenas um semitom."
+    }
+  ]
+}

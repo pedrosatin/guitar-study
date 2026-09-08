@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cifras e metrônomo | Estudo de violão</title>
+<link rel="icon" href="data:,">
+
+<link rel="stylesheet" href="style.css">
+<script defer src="../../shared/catalog.js"></script>
+<script defer src="../../shared/progress.js"></script>
+<script defer src="../../shared/navigation.js"></script>
+<script defer src="../../shared/practice-log.js"></script>
+<script defer src="../../shared/shell.js"></script>
+<link rel="stylesheet" href="../../shared/study.css">
+</head>
+<body class="study-app study-module" data-module="m3">
+<main class="study-content player-main">
+<header class="page-heading">
+<p class="eyebrow">Cifras e metrônomo · sugestão de 10 minutos</p>
+<h1>Conte os cliques e toque junto</h1>
+<p>Você vai manter uma contagem regular e trocar entre <strong>Em (Mi menor)</strong> e <strong>Am (Lá menor)</strong>. Essas letras são cifras: indicam qual acorde montar.</p>
+<p>Antes, confira se consegue <a href="../m2-chords-diagram/#slow-practice">trocar Em e Am sem relógio</a> e <a href="../m4-pitch-detect/">afine o violão</a>. Você pode fazer o primeiro exercício sem instrumento.</p>
+<nav aria-label="Etapas desta aula"><a href="#count-title">Entender a contagem</a> · <a href="#practice">Praticar</a> · <a href="#self-review">Conferir a tentativa</a></nav>
+</header>
+<section aria-labelledby="count-title" class="study-half">
+<h2 id="count-title">1. Entenda a contagem</h2>
+<p>O <strong>metrônomo</strong> produz cliques igualmente espaçados. Cada clique marca um <strong>tempo</strong>. Conte em voz alta "1, 2, 3, 4" e comece de novo no 1. Esse grupo de quatro tempos é um <strong>compasso</strong> neste exercício.</p>
+<p><strong>60 BPM</strong> significa 60 batidas por minuto: um clique por segundo. Um número menor deixa mais tempo para mover os dedos. O clique mais agudo marca o primeiro tempo do compasso.</p>
+</section>
+<section aria-labelledby="movement-title" class="study-half">
+<h2 id="movement-title">2. Acrescente o violão aos poucos</h2>
+<ol>
+<li><strong>Conte sem tocar.</strong> Escolha o primeiro exercício e acompanhe os oito cliques após a preparação. Diga um número em cada clique.</li>
+<li><strong>Toque só Em.</strong> Monte o acorde antes de iniciar. Em cada clique, passe a mão das cordas grossas para as finas, uma vez para baixo. Entre cliques, volte a mão por fora das cordas, sem tocá-las.</li>
+<li><strong>Troque Em e Am.</strong> Toque Em nos cliques 1, 2, 3, 4. Depois do 4, mova os dedos para Am e toque no próximo 1. Em usa as seis cordas; em Am, toque da 5ª à 1ª.</li>
+</ol>
+<p>Se perder a contagem, pause e prepare a mão. Ao continuar, haverá uma nova contagem de preparação e o acorde interrompido começará de novo. Se a troca ainda exigir parar, <a href="../m2-chords-diagram/#slow-practice">retome o treino sem relógio</a>.</p>
+</section>
+<section aria-labelledby="practice-title" id="practice" class="study-half">
+<h2 id="practice-title">3. Pratique com a contagem</h2>
+<label for="song-select">Exercício</label>
+<select id="song-select">
+<option value="0">1. Contar sem tocar</option>
+<option value="1">2. Tocar só Em</option>
+<option value="2">3. Trocar Em e Am</option>
+</select>
+<p id="exercise-help"></p>
+<div class="practice-console">
+<p id="playback-status" role="status" aria-atomic="true"></p>
+<div class="chord-cues">
+<div><span id="current-label">Agora</span><strong id="current-chord">Conte</strong></div>
+<div><span>Depois</span><strong id="next-chord">Conte</strong></div>
+</div>
+<p id="beat-instruction">Aguarde a preparação.</p>
+<div class="beats" aria-label="Contagem visual"></div>
+<div class="controls">
+<button id="play-btn" type="button">Iniciar</button>
+<button id="pause-btn" type="button" disabled>Pausar</button>
+<button id="restart-btn" type="button">Voltar ao início</button>
+</div>
+</div>
+<div class="tempo-control">
+<label for="bpm">Velocidade: <output id="bpm-value" for="bpm">60</output> BPM</label>
+<input id="bpm" type="range" min="40" max="200" value="60" aria-describedby="tempo-help">
+<p id="tempo-help">Comece em 60. Se precisar de mais tempo, tente 40. Ajustes ficam disponíveis ao pausar.</p>
+</div>
+<details id="practice-options"><summary>Ajustar duração e repetição</summary>
+<p>Alterar a duração volta ao início. Em cifras próprias, cada acorde recebe a mesma duração; o texto não define o ritmo de uma gravação.</p>
+<label for="chord-beats">Cliques por acorde (ou por grupo de contagem)</label>
+<select id="chord-beats"><option value="0">Um compasso (4 cliques no exercício inicial)</option><option value="2">2 cliques · troca mais rápida</option><option value="8">8 cliques · mais tempo no acorde</option></select>
+<label class="check"><input id="repeat" type="checkbox"> Repetir até eu pausar</label>
+<p>Com 8 cliques, conte dois grupos de quatro por acorde. Com 2, troque a cada dois cliques. O painel mostra em qual clique você está.</p>
+</details>
+<p class="muted">Você ouvirá apenas os cliques. A página não escuta o violão nem avalia acertos. Os acordes exibidos são orientações para você tocar.</p>
+<details id="sequence"><summary>Ver a sequência completa</summary><h3 id="song-title"></h3><div id="song-area"></div></details>
+</section>
+<section id="self-review" aria-labelledby="review-title" class="study-half">
+<h2 id="review-title">4. Confira sua tentativa</h2>
+<p id="completion" role="status">Ao terminar, confira o que conseguiu acompanhar.</p>
+<ul>
+<li>Na contagem: disse um número em cada clique, sem acelerar entre eles?</li>
+<li>Com Em: fez uma batida para baixo por clique e ouviu as cordas sem abafamento?</li>
+<li>Na troca: chegou ao Am no clique indicado e evitou a 6ª corda?</li>
+</ul>
+<p>Se ainda se perder, repita a mesma etapa ou volte à anterior. Quando conseguir duas tentativas seguidas acompanhando os cliques, experimente a próxima etapa. Aumentar a velocidade é opcional.</p>
+<p>Registre os minutos que praticou no diário ao fim da página. Esta atividade não salva resultados automaticamente.</p>
+</section>
+<details id="custom-editor"><summary>Opcional: praticar minha cifra</summary>
+<p>Escreva os acordes entre colchetes, como no exemplo. Cada acorde dura o número de cliques escolhido acima. O texto serve de lembrete; cantar junto é opcional. Use acordes que você já sabe montar.</p>
+<label for="custom-song">Minha sequência de acordes</label>
+<textarea id="custom-song" rows="4" maxlength="20000" spellcheck="false">{title: Meu treino}
+[Em]Mi menor [Am]Lá menor</textarea>
+<details><summary>Formato ChordPro e ajustes opcionais</summary><p>ChordPro é um formato de texto com acordes entre colchetes. Você pode acrescentar linhas como <code>{title: Meu treino}</code>, <code>{bpm: 60}</code> e <code>{time_signature: 3/4}</code>. O número antes da barra define quantos cliques formam um grupo. Cada clique vale um tempo de treino, inclusive em outras fórmulas de compasso.</p></details>
+<button id="load-custom" type="button">Carregar cifra</button><p id="custom-status" role="status"></p>
+</details>
+</main>
+<script src="player.js"></script><script src="app.js"></script>
+</body>
+</html>

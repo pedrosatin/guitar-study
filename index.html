@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101310">
+  <title>Meu estudo de violão</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="shared/study.css">
+  <script defer src="shared/catalog.js"></script>
+  <script defer src="shared/progress.js"></script>
+  <script defer src="shared/navigation.js"></script>
+  <script defer src="shared/practice-log.js"></script>
+  <script defer src="shared/shell.js"></script>
+  <script defer src="shared/home.js"></script>
+</head>
+<body class="study-app study-home">
+  <main id="content" class="study-content">
+    <div class="intro"><span class="eyebrow">Uma prática de cada vez</span><h1>Um pouco de prática.<br>Um novo som.</h1><p class="muted">Aprenda a montar os acordes, manter o tempo e tocar com mais clareza. Escolha uma aula ou vá direto à ferramenta que precisa.</p></div>
+    <div class="dashboard">
+      <section class="panel" aria-labelledby="routine-title"><span class="eyebrow">Rotina sugerida · 15 minutos</span><h2 id="routine-title">Pegue o violão e comece</h2><ol class="routine"><li><a href="poc/m4-pitch-detect/">Confira a afinação</a> · 2 min</li><li><a href="poc/m2-chords-diagram/">Pratique dois acordes e a troca entre eles</a> · 5 min</li><li><a href="poc/m3-chordpro-player/">Toque a sequência no metrônomo</a> · 5 min</li><li>Repita o trecho mais difícil e anote o que melhorar · 3 min</li></ol><a class="study-action" href="poc/m8-lesson-curator/">Abrir meu plano de estudo</a></section>
+      <section class="panel" aria-labelledby="today-title"><h2 id="today-title">Sua prática de hoje</h2><p id="today-total">0 minutos registrados</p><progress id="today-progress" max="15" value="0" aria-label="Progresso da meta diária"></progress><form class="goal-form" id="goal-form"><label for="goal">Meta diária em minutos<input id="goal" type="number" min="5" max="120" step="1" value="15" required></label><button type="submit" class="secondary">Salvar meta</button></form><p id="goal-status" role="status" class="muted"></p><p class="muted">Ao terminar um exercício, use "Registrar minha prática" no fim da página.</p><p id="week-total" class="muted"></p></section>
+    </div>
+    <section id="modules" aria-labelledby="modules-title"><h2 id="modules-title">O que você quer estudar?</h2><p class="muted">Começando do zero? Abra Fundamentos e siga para o Plano de estudo.</p><div id="module-list" class="module-grid"></div></section>
+    <section id="history" aria-labelledby="history-title"><h2 id="history-title">Diário de prática</h2><p class="muted">Guarde o que conseguiu tocar e o que quer repetir.</p><div id="session-list"></div><button id="export" class="secondary" type="button">Exportar meus registros</button><p id="history-status" role="status"></p></section>
+    <noscript>Ative o JavaScript para usar os exercícios e salvar sua prática.</noscript>
+  </main>
+  <footer>Seu progresso fica neste navegador. Áudio e vídeo são processados no dispositivo. Os módulos de câmera usam modelos externos e precisam de internet.</footer>
+</body>
+</html>

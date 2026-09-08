@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afinador | Estudo de violão</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+
+<script defer src="../../shared/catalog.js"></script>
+<script defer src="../../shared/progress.js"></script>
+<script defer src="../../shared/navigation.js"></script>
+<script defer src="../../shared/practice-log.js"></script>
+<script defer src="../../shared/shell.js"></script>
+<link rel="stylesheet" href="../../shared/study.css">
+</head>
+<body class="study-app study-module" data-module="m4">
+<main class="study-content tuner-main">
+<header class="page-heading">
+<p class="eyebrow">Afinador · Afinação padrão para seis cordas</p>
+<h1>Afine uma corda por vez</h1>
+<p>Afinar é ajustar cada corda para o som esperado. Comece pela 6ª, a mais grossa, e siga até a 1ª, a mais fina. Reserve tempo para repetir sem pressa.</p>
+<a href="#tuner">Ir para o afinador</a>
+</header>
+<section aria-labelledby="prepare-title" class="study-half">
+<h2 id="prepare-title">1. Encontre a corda e sua tarraxa</h2>
+<p>Segure o violão na posição de tocar. A numeração depende da espessura: 6ª é a mais grossa e 1ª é a mais fina, inclusive para canhotos. <a href="../m1-theory-foundation/">Reveja as partes do violão em Fundamentos.</a></p>
+<ol>
+<li>Siga a corda com os olhos até a cabeça do violão. A tarraxa é a peça que você gira para mudar a tensão dessa corda.</li>
+<li>Toque a corda <strong>solta</strong>, sem pressionar nenhuma casa. Encoste de leve nas outras cordas para silenciá-las.</li>
+<li>Escolha a mesma corda no afinador abaixo. Ligue o microfone e permita o acesso no navegador. Toque uma vez e deixe o som durar.</li>
+</ol>
+</section>
+<section aria-labelledby="adjust-title" class="study-half">
+<h2 id="adjust-title">2. Faça um ajuste pequeno e toque de novo</h2>
+<p><strong>Som grave demais:</strong> aumente um pouco a tensão da corda para o som ficar mais agudo. <strong>Som agudo demais:</strong> diminua um pouco a tensão para o som ficar mais grave.</p>
+<p>O sentido de giro depende de como a corda foi instalada. Gire muito pouco, toque novamente e veja se o indicador se aproxima do centro. Se ele se afastar, desfaça esse pequeno giro e tente o outro sentido.</p>
+<p>Se aparecer "Confira a corda", confira a seleção e a tarraxa antes de girar mais. Se a corda estiver muito tensa, a tarraxa resistir ou você não souber qual girar, pare e peça ajuda a alguém que saiba afinar.</p>
+</section>
+<section id="tuner" aria-labelledby="tuner-title" class="study-half">
+<h2 id="tuner-title">3. Confira as seis cordas</h2>
+<div class="tuner-console">
+<label for="target">Corda que você vai tocar</label>
+<select id="target" aria-describedby="string-help">
+<option value="E2" selected>6ª corda · Mi · mais grossa</option>
+<option value="A2">5ª corda · Lá</option>
+<option value="D3">4ª corda · Ré</option>
+<option value="G3">3ª corda · Sol</option>
+<option value="B3">2ª corda · Si</option>
+<option value="E4">1ª corda · Mi · mais fina</option>
+</select>
+<p id="string-help">Toque a 6ª corda solta, a mais grossa.</p>
+<p class="muted">O microfone mede sua corda. O áudio fica neste navegador, sem gravação ou envio.</p>
+<button id="start" type="button" class="primary">Ligar microfone</button>
+<p id="status" role="status" aria-atomic="true">Ligue o microfone para conferir a afinação.</p>
+<div class="detect"><div><span class="muted">Som detectado</span><div id="note" class="note">Sem leitura</div></div><div id="verdict" class="verdict" aria-hidden="true"></div></div>
+<div class="gauge-wrap" aria-hidden="true">
+<div class="gauge-label"><span>Mais grave</span><span>Centro</span><span>Mais agudo</span></div>
+<div class="gauge"><div class="gauge-center"></div><div id="needle" class="gauge-needle" hidden></div></div>
+</div>
+<p id="guidance" role="status" aria-atomic="true">Aguardando uma nota estável.</p>
+<button id="next-string" type="button">Próxima corda</button>
+</div>
+<p>A marca de conferida aparece após cerca de um segundo de leitura estável no centro. Toque de novo para conferir mais uma vez. O microfone mede o som que chega até ele; ruídos e outras cordas podem alterar a leitura.</p>
+<p id="progress" role="status" aria-atomic="true">0 de 6 cordas conferidas nesta sessão.</p>
+<ul id="checked-strings" class="checked-strings" aria-label="Cordas conferidas nesta sessão"></ul>
+<p class="muted">As marcas registram o que você conferiu nesta sessão. Uma corda pode desafinar depois. Recarregar a página apaga essas marcas.</p>
+<p>"Conferir novamente" apaga as seis marcas para você repetir a conferência.</p>
+<button id="reset-check" type="button">Conferir novamente</button>
+<details>
+<summary>Entender os números da leitura</summary>
+<p>As letras representam notas: E é Mi, A é Lá, D é Ré, G é Sol e B é Si. O número em E2 ou E4 identifica a oitava: E2 é o Mi grave da 6ª corda e E4 é o Mi agudo da 1ª.</p>
+<p>Hz mede a frequência do som. Cents mede a distância até o som esperado: negativo indica grave demais, positivo indica agudo demais. A marca de conferida usa uma margem de cinco cents para cada lado. A referência é Lá a 440 Hz.</p>
+<p id="targetLabel"></p><p id="centsLabel">Desvio: sem leitura</p><p id="meta">Sem leitura.</p>
+</details>
+</section>
+<section aria-labelledby="help-title" class="study-half">
+<h2 id="help-title">Se a leitura não ajudar</h2>
+<details><summary>Não aparece uma nota ou ela fica pulando</summary><p>Procure um lugar silencioso, aproxime o microfone do violão e toque só a corda escolhida, sem força excessiva. Abafe as outras cordas. Espere o início mais forte do som passar. Quando o som sumir, toque novamente.</p><p>Se a leitura continuar instável, confira com outro afinador ou peça ajuda. Não continue girando a tarraxa com base numa leitura que pula.</p></details>
+<details><summary>Não consigo ligar o microfone</summary><p>Use o controle de permissões ao lado do endereço para permitir o microfone neste site. Confira se há um microfone conectado e se outro aplicativo está usando o dispositivo. Depois tente ligar novamente.</p><p>O acesso funciona em HTTPS ou no endereço localhost usado para estudar neste computador. Sem microfone, você pode seguir a aula com um afinador externo.</p></details>
+<p>O áudio é analisado neste navegador, sem gravação ou envio. O botão "Desligar microfone" encerra a captura. Ao trocar de aba ou sair da página, a captura também para.</p>
+</section>
+<section aria-labelledby="finish-title">
+<h2 id="finish-title">Depois das seis cordas</h2>
+<p>Toque cada corda solta mais uma vez. Ajustar uma corda pode mudar a afinação das outras. Use "Conferir novamente" para começar essa segunda passagem.</p>
+<p>Quando terminar, desligue o microfone e <a href="../m2-chords-diagram/">toque Em e Am na aula de Acordes</a>. O som deve ficar limpo, sem cordas abafadas. Se precisar, registre o tempo que praticou no diário abaixo.</p>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "id": "06-postura",
+  "titulo": "Prepare o violão no colo",
+  "objetivo": "Sente-se com o violão e deixe as duas mãos livres para tocar.",
+  "itens": [
+    {
+      "parte": "Sente-se e apoie o instrumento",
+      "descricao": "Use uma cadeira firme, de preferência sem braços. Apoie os pés e acomode a curva do corpo do violão sobre uma coxa. Deixe o braço do instrumento um pouco elevado e os ombros relaxados."
+    },
+    {
+      "parte": "Qual mão faz o quê?",
+      "descricao": "Na posição destra, a mão direita toca as cordas sobre o corpo e a esquerda pressiona as casas. Na posição canhota, essas funções se invertem e o violão precisa estar preparado para essa posição. Aqui vamos dizer \"mão que toca\" e \"mão que pressiona\"."
+    },
+    {
+      "parte": "Mão que toca",
+      "descricao": "Apoie o antebraço de leve sobre a borda do corpo do violão. Deixe a mão alcançar as cordas perto da boca. Comece com movimentos pequenos, sem prender o ombro."
+    },
+    {
+      "parte": "Mão que pressiona",
+      "descricao": "Apoie o polegar atrás do braço. Curve os outros dedos para encostar a ponta na corda escolhida. Na primeira casa, pressione perto do primeiro traste, do lado da pestana, deixando a barrinha de metal livre."
+    },
+    {
+      "parte": "Antes de continuar",
+      "descricao": "Confira se o violão está apoiado sem depender de apertar o braço com a mão. Se a posição incomodar, solte as mãos e ajuste o apoio antes de tentar de novo."
+    }
+  ]
+}

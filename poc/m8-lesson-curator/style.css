@@ -1,0 +1,92 @@
+/* Plan and lesson details. Shared controls, colors and type are in shared/. */
+.page-heading.app { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.plan-session { display: grid; gap: 20px; align-content: start; }
+.plan-session .today { padding: 24px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; }
+.plan-session select { display: block; margin-block: 8px; }
+.plan-lessons > p { color: var(--muted); font-size: .875rem; }
+.progress-bar { color: var(--muted); font-size: .875rem; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.progress-bar .bar { width: 100%; height: 8px; background: var(--bg-elev2); border-radius: 4px; overflow: hidden; }
+.progress-bar .fill { height: 100%; background: var(--accent); width: 0%; transition: width .25s; }
+.card { border: 1px solid var(--border); border-radius: 8px; display: flex; flex-direction: column; gap: 12px; }
+.card .num { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+.card .meta { color: var(--muted); font-size: .875rem; display: flex; flex-wrap: wrap; gap: 12px; }
+.card .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: .75rem; background: var(--chip); color: var(--text); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); }
+.chip.none { color: var(--muted); }
+.status { font-size: .875rem; display: inline-flex; align-items: center; gap: 8px; }
+.status.done { color: var(--ok); }
+.status.todo { color: var(--muted); }
+.status.locked { color: var(--warn); }
+.modal-backdrop { position: fixed; inset: 0; background: #000b; display: none; align-items: stretch; justify-content: center; z-index: 100; padding: 12px; }
+.modal-backdrop.open { display: flex; }
+.modal { border: 1px solid var(--border); border-radius: 12px; width: 100%; max-height: calc(100dvh - 24px); overflow-y: auto; display: flex; flex-direction: column; }
+.modal-head { background: var(--bg); border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.modal-head > div { min-width: 0; }
+.modal-head .title { overflow-wrap: anywhere; }
+.modal-head .meta { color: var(--muted); font-size: .875rem; margin-top: 8px; }
+.modal-body { padding: 24px; display: flex; flex-direction: column; }
+.col section { margin-bottom: 24px; }
+.theory { font-size: 1rem; }
+.theory h2 { margin-top: 24px; }
+.theory em { color: var(--accent-2); }
+.chords-row { display: flex; flex-wrap: wrap; gap: 20px; }
+.chord-card { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.chord-card .name { font-size: 1rem; font-weight: 600; }
+.chord-card.essential .name { color: var(--accent); }
+.chord-card svg { width: 176px; height: 224px; max-width: 100%; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 8px; }
+.missing-chord { width: 176px; height: 224px; border: 1px dashed var(--border); display: grid; place-items: center; color: var(--muted); }
+.bpm-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.bpm-row input[type=range] { flex: 1; min-width: 120px; }
+.bpm-val { font-variant-numeric: tabular-nums; color: var(--accent); }
+.seq { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.seq .ch { padding: 8px 12px; border-radius: 4px; background: var(--chip); border: 1px solid var(--border); font-weight: 600; }
+.seq .ch.active { background: var(--accent); color: var(--bg); }
+.beat-dots { display: flex; gap: 8px; margin: 12px 0 0; }
+.beat-dots .dot { width: 24px; height: 24px; border-radius: 50%; background: var(--bg-elev2); border: 1px solid var(--border); }
+.beat-dots .dot.on { background: var(--accent); border-color: var(--accent); }
+.practice-status { min-height: 1.5em; }
+.practice-pattern { color: var(--muted); font-size: .875rem; margin-top: 8px; }
+.song-head { margin-bottom: 8px; }
+.song-head .t { font-weight: 600; }
+.song-head .a { color: var(--muted); font-size: .875rem; }
+.chordpro { font-family: ui-monospace, monospace; line-height: 2; white-space: pre-wrap; }
+.chordpro .cp-chord { display: inline-block; font-size: .875rem; color: var(--accent); position: relative; top: -6px; margin-right: 4px; font-weight: 600; }
+.chordpro .cp-br { display: block; }
+.goal-check { display: flex; gap: 12px; align-items: flex-start; margin: 12px 0; padding: 8px 0; }
+.goal-check input { margin-top: 4px; }
+.empty { color: var(--muted); }
+@media (max-width: 480px) {
+  .modal-backdrop { padding: 0; }
+  .modal { border-radius: 0; max-height: 100dvh; }
+  .modal-body, .plan-session .today { padding: 16px; }
+}
+
+@media (min-width: 960px) {
+  body.study-app[data-module=m8] main.study-content { grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); }
+  body.study-app[data-module=m8] main > .plan-session, body.study-app[data-module=m8] main > .plan-lessons { grid-column: auto; }
+  body.study-app[data-module=m8] #cards { grid-template-columns: 1fr; }
+}
+
+.study-app #cards { display: grid; gap: 12px; }
+.study-app #cards .card { text-align: left; padding: 24px; background: var(--study-panel); }
+.study-app #cards .card:hover { border-color: var(--study-accent); background: var(--study-raised); }
+.study-app #cards .title { font: 600 1.125rem/1.4 var(--study-font); }
+.study-app #cards .num { color: var(--study-accent); }
+.study-app #continue-lesson { justify-self: start; margin: 0; }
+.study-app .progress-bar { margin: 0; }
+.study-app .modal { max-width: 1120px; background: var(--study-bg); }
+.study-app .modal-body { gap: 24px; }
+.study-app .modal-body .col { min-width: 0; }
+.study-app .modal-body .lesson-guide { padding: 20px; border-left: 3px solid var(--study-accent); background: var(--study-panel); }
+.study-app .modal-head { padding: 24px; }
+.study-app .modal-head .title { font: 500 1.75rem/1.2 var(--study-display); }
+.study-app .modal-footer { padding: 0 24px 24px; }
+
+@media (min-width: 960px) {
+  .study-app .modal-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .study-app .modal-body > :first-child, .study-app .modal-body > :last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .study-app .modal-head { padding: 16px; }
+  .study-app .modal-footer { padding: 0 16px 24px; }
+}

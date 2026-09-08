@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Espelho de prática | Estudo de violão</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="../../shared/media.css"><link rel="stylesheet" href="style.css">
+<script defer src="../../shared/catalog.js"></script><script defer src="../../shared/progress.js"></script><script defer src="../../shared/navigation.js"></script>
+<script defer src="../../shared/practice-log.js"></script>
+<script defer src="../../shared/shell.js"></script>
+<link rel="stylesheet" href="../../shared/study.css">
+</head><body class="study-app study-module media-controls" data-module="m5"><main class="study-content mirror-main">
+<header class="page-heading"><p class="eyebrow">OBSERVAR E REPETIR</p><h1>Veja como sua mão troca de acorde</h1><p>Faça cinco trocas lentas entre Mi menor (Em) e Lá menor (Am). Observe uma coisa por vez e escute as cordas. Você controla o ritmo do exercício.</p><a href="#practice">Ir ao exercício</a></header>
+<section><h2>1. Prepare o violão e a imagem</h2>
+<p>Este exercício vem depois de <a href="../m2-chords-diagram/">Acordes e trocas</a>, onde você aprende a montar Em e Am. Se o instrumento estiver desafinado, use o <a href="../m4-pitch-detect/">Afinador</a> primeiro.</p>
+<ol><li>Apoie o violão como na aula de <a href="../m1-theory-foundation/">Fundamentos</a>. Deixe as mãos livres para tocar.</li><li>Apoie o celular ou computador em uma superfície firme. Enquadre a mão que aperta as cordas e as três primeiras casas, perto da ponta do braço. Isso vale também para quem toca com violão para canhotos.</li><li>Use luz de frente ou de lado. Ajuste a posição do aparelho antes de tocar, sem torcer o corpo para aparecer na tela.</li></ol>
+<p>Sem câmera, use um espelho comum ou olhe para a mão entre uma tentativa e outra. O roteiro e a contagem abaixo funcionam do mesmo jeito.</p></section>
+<section aria-labelledby="camera-title" class="study-half"><h2 id="camera-title">2. Espelho opcional</h2>
+<p>A câmera mostra uma imagem ao vivo, invertida como um espelho. Você pode desmarcar essa inversão. O microfone fica desligado. A página não grava nem envia suas imagens.</p>
+<div class="controls"><button id="start">Ligar câmera</button><button id="stop" disabled>Desligar câmera</button></div>
+<p id="status" role="status">A câmera só será solicitada ao clicar. Você também pode seguir direto ao exercício.</p>
+<label><input type="checkbox" id="mirror" checked> Inverter imagem como um espelho</label>
+<div id="stage" class="media-stage media-stage--mirror" hidden><video id="video" autoplay muted playsinline aria-label="Imagem ao vivo da câmera"></video><canvas id="canvas" aria-hidden="true"></canvas></div>
+<details><summary>Pontos da mão, recurso experimental</summary><p>Os pontos estimam articulações visíveis. Eles não avaliam acorde, pressão, conforto ou qualidade do som. Dedos escondidos atrás do braço podem não aparecer. Você pode fazer toda a atividade sem os pontos.</p><p>Ao ativar, o navegador baixa arquivos do MediaPipe de jsDelivr e Google pela internet. As imagens são processadas neste dispositivo.</p><label><input type="checkbox" id="tracking"> Mostrar pontos da mão</label><p id="tracking-status" role="status">Câmera desligada</p></details>
+<details><summary>A câmera não ligou ou a mão não aparece</summary><p>Se a permissão foi negada, libere a câmera nas configurações deste site e clique em Ligar câmera. Feche outro aplicativo que possa estar usando a câmera. O acesso precisa de HTTPS ou localhost.</p><p>Enquadre primeiro a mão inteira com as primeiras casas do braço. Se os pontos falharem, desmarque a opção e use apenas a imagem. Ao sair desta aba, a câmera desliga. Para retomar, clique em Ligar câmera.</p></details>
+</section>
+<section id="practice" tabindex="-1" class="study-half"><h2>3. Cinco trocas, sem relógio</h2>
+<p>Primeiro monte Em e toque as seis cordas, uma por vez. A 6ª é a mais grossa; a 1ª, a mais fina. Uma troca é mudar de um acorde para o outro: Em → Am conta uma; Am → Em conta outra.</p>
+<details><summary>Relembrar os dedos de Em e Am</summary><p>Use a mão que aperta as cordas. Dedo 1 é o indicador, 2 é o médio e 3 é o anelar. A casa 1 fica entre a pestana e o primeiro traste.</p><p><strong>Em:</strong> dedo 2 na corda 5, casa 2; dedo 3 na corda 4, casa 2. As outras cordas ficam soltas.</p><p><strong>Am:</strong> dedo 1 na corda 2, casa 1; dedo 2 na corda 4, casa 2; dedo 3 na corda 3, casa 2. Cordas 5 e 1 ficam soltas; não toque a corda 6.</p><a href="../m2-chords-diagram/">Ver os diagramas de acordes</a></details>
+<div class="practice-panel"><p class="eyebrow">SUA VEZ</p><h3 id="change-title">Troca 1: Em → Am</h3><p id="change-help">Monte Am e toque cada corda da 5ª à 1ª. Observe se algum dedo encosta numa corda vizinha que deveria soar.</p><p>Solte a pressão para mover os dedos e procure as casas do próximo acorde. Pare para escutar. Não precisa acertar de primeira.</p><button id="count-change" class="primary">Fiz esta troca e escutei as cordas</button><p id="change-status" role="status" aria-atomic="true">0 de 5 trocas feitas por você.</p><button id="undo-change" disabled>Desfazer última contagem</button></div>
+<details><summary>Uma corda ficou muda ou com um ruído de vibração</summary><p>Toque só essa corda. Veja se um dedo encosta nela sem querer ou se o dedo que a aperta está longe do traste. Reposicione perto do traste do lado do corpo, sem ficar sobre o metal, e teste outra vez. Ajuste um dedo por vez.</p><p>Se houver desconforto, pare e reposicione o instrumento antes de tentar novamente. A câmera não consegue avaliar isso por você.</p></details>
+</section>
+<section><h2>4. Confira o que você percebeu</h2><p>Marque somente o que você fez. A câmera e os pontos não preenchem esta revisão.</p>
+<fieldset><legend>Minha revisão da prática</legend><label><input type="checkbox" class="review"> Fiz cinco trocas lentas</label><label><input type="checkbox" class="review"> Escutei cada corda dos dois acordes</label><label><input type="checkbox" class="review"> Escolhi um detalhe para repetir, como evitar encostar na corda vizinha</label></fieldset>
+<p id="review-status" role="status">Marque o que você verificou durante o exercício.</p>
+<p>Se as cordas soaram como você queria, repita uma troca para conferir se consegue o mesmo resultado. Se alguma falhou, repita só essa troca com a ajuda acima.</p>
+<p>A contagem e as marcações ficam apenas nesta página e se apagam ao recarregar. Recomeçar limpa ambas e mantém a câmera no estado atual.</p><button id="reset-review">Recomeçar exercício e revisão</button>
+<p>Ao terminar, desligue a câmera. Registre seus minutos e o detalhe que quer repetir no diário abaixo. Depois, volte a <a href="../m3-chordpro-player/">Cifras e metrônomo</a> para praticar com pulso ou explore o <a href="../m6-fretdetection-marks/">Mapa do braço</a>.</p>
+</section></main><script type="module" src="app.js"></script></body></html>

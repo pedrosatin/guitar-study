@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plano de estudo de violão</title>
+  <link rel="stylesheet" href="style.css">
+
+<link rel="icon" href="data:,">
+
+<script defer src="../../shared/catalog.js"></script>
+<script defer src="../../shared/progress.js"></script>
+<script defer src="../../shared/navigation.js"></script>
+<script defer src="../../shared/practice-log.js"></script>
+<script defer src="../../shared/shell.js"></script>
+<link rel="stylesheet" href="../../shared/study.css">
+</head>
+<body class="study-app study-module" data-module="m8">
+  <main class="study-content ">
+<header class="page-heading app">
+    <div>
+      <h1>Plano de estudo</h1>
+      <div class="sub">Cinco aulas para começar. Repita cada uma quantas vezes precisar.</div>
+    </div>
+    <div>
+      <button class="btn ghost" id="reset-progress">Zerar este plano</button>
+    </div>
+  </header>
+<div class="plan-session">
+<section class="today" aria-labelledby="today-title">
+<h2 id="today-title">O que praticar hoje</h2>
+<p>Comece pela aula 1 se este é seu primeiro contato. Todas as aulas ficam disponíveis para consulta. A ordem sugerida ajuda a preparar cada exercício.</p>
+<label for="session-minutes">Quanto tempo você tem hoje?</label>
+<select id="session-minutes"><option value="5">5 minutos</option><option value="10" selected>10 minutos</option><option value="20">20 minutos</option></select>
+<p id="session-outline" role="status"></p>
+<p>Esse tempo é uma sugestão, sem cronômetro. Você pode dividir uma aula entre vários dias. Pare para descansar se sentir desconforto.</p>
+</section>
+    <div class="progress-bar">
+      <span id="progress-label">0 de 5 lições concluídas</span>
+      <div class="bar"><div class="fill" id="progress-fill"></div></div>
+    </div>
+    <p id="lesson-status" role="status"></p><button class="btn primary" id="continue-lesson">Continuar estudos</button><p id="next-guidance"></p></div>
+<div class="plan-lessons"><h2>Escolha uma aula</h2><div class="grid" id="cards"></div>
+<p>As marcações, a última aula e suas anotações ficam neste navegador. Concluir uma aula é sua autoavaliação e não registra minutos. Use o Diário de prática ao fim da página para registrar o tempo que realmente praticou.</p>
+<p>O botão "Zerar este plano" apaga apenas conclusões, objetivos e anotações destas cinco aulas. O diário e os outros módulos são preservados. A exportação do diário não inclui este plano.</p>
+</div>
+  </main>
+
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <div class="title" id="m-title">—</div>
+          <div class="meta" id="m-meta">—</div>
+        </div>
+        <div class="controls">
+          <button class="btn" id="m-close">Fechar</button>
+        </div>
+      </div>
+      <div class="modal-body" id="m-body"></div>
+      <div class="modal-footer"><p>Confira os objetivos acima para concluir. Você pode fechar e voltar depois.</p><div class="controls"><button class="btn primary" id="m-complete">Confira os objetivos</button><button class="btn" id="m-back">Voltar ao plano</button></div><p id="completion-status" role="status"></p></div>
+    </div>
+  </div>
+
+  <script type="application/json" id="lessons-data">
+[
+  {
+    "id": "lesson-01",
+    "title": "Primeiros passos com o violão",
+    "duration_minutes": 10,
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "goals": [
+      "Apontei corpo, braço, pestana e tarraxas no meu violão",
+      "Apoiei o violão e movi a mão das casas sem sustentar seu peso",
+      "Toquei as seis cordas soltas e conferi seus números e nomes"
+    ],
+    "theory": "## Conheça o instrumento\n- Corpo: caixa de ressonância formada por tampo, laterais e fundo.\n- Boca: abertura no tampo.\n- Cavalete: fixa as cordas ao corpo.\n- Braço: sustenta a escala, dividida em casas pelos trastes metálicos.\n- Pestana: guia as cordas entre a escala e a cabeça.\n- Tarraxas: ajustam a tensão das cordas e a afinação.\n\n## Prepare a posição\nSente-se em uma posição estável e apoie o violão sem levantar o ombro. A mão que pressiona as cordas deve se mover sem sustentar o peso do instrumento. Mantenha os dedos curvados e use apenas a pressão necessária para a nota soar.\n\n## Cordas e cifras\nDa mais grossa para a mais fina: 6ª Mi (E2), 5ª Lá (A2), 4ª Ré (D3), 3ª Sol (G3), 2ª Si (B3), 1ª Mi (E4). A numeração começa pela corda mais fina.\n\n## Exercício\nToque cada corda solta e diga seu número e nome. Repita cinco vezes, depois tente em ordem alternada: 6, 1, 5, 2, 4, 3. Use o módulo de fundamentos para ouvir referências e o afinador antes da próxima lição.",
+    "chords": [],
+    "practice": {
+      "type": "play-along",
+      "bpm": 60,
+      "timeSignature": "4/4",
+      "chords": [],
+      "pattern": "Toque cada corda com o polegar"
+    },
+    "song": null
+  },
+  {
+    "id": "lesson-02",
+    "title": "Primeiro acorde: Em",
+    "duration_minutes": 15,
+    "difficulty": "beginner",
+    "prerequisites": [
+      "lesson-01"
+    ],
+    "goals": [
+      "Expliquei corda solta e toquei uma corda sem pressionar uma casa",
+      "Montei Em com médio na corda 5 e anelar na corda 4, ambos na casa 2",
+      "Toquei as seis cordas de Em separadamente e ouvi cada uma soar"
+    ],
+    "theory": "## Monte o Em\nEm significa mi menor. Coloque o dedo 2 (médio) na casa 2 da corda 5 e o dedo 3 (anelar) na casa 2 da corda 4. As cordas 6, 3, 2 e 1 ficam soltas. Toque as seis cordas.\n\n## Leia o diagrama\nAs linhas verticais vão da 6ª corda, à esquerda, até a 1ª, à direita. X indica uma corda que não deve soar. O círculo aberto indica corda solta. Cada espaço entre linhas horizontais é uma casa.\n\n## Confira o som\nToque uma corda de cada vez. Posicione a ponta do dedo dentro da casa, próxima ao traste que está na direção do corpo, pelo lado da cabeça. Evite apoiar o dedo sobre o metal ou encostar nas cordas vizinhas.\n\n## Exercício de montagem\nMonte Em, toque as seis cordas separadamente e solte a mão. Repita dez vezes. Depois toque uma batida para baixo por pulso, durante quatro voltas da sequência. Comece em 60 BPM. Se houver tensão, faça uma pausa e reduza a pressão.",
+    "chords": [
+      {
+        "name": "Em",
+        "suffix": "minor",
+        "essential": true
+      }
+    ],
+    "practice": {
+      "type": "play-along",
+      "bpm": 60,
+      "timeSignature": "4/4",
+      "chords": [
+        "Em"
+      ],
+      "pattern": "Quatro batidas para baixo"
+    },
+    "song": {
+      "title": "Estudo 1 de acordes",
+      "artist": "Exercício original do Guitar Study",
+      "chordPro": "[Em] 1   2   3   4"
+    }
+  },
+  {
+    "id": "lesson-03",
+    "title": "Dois acordes: Em e Am",
+    "duration_minutes": 15,
+    "difficulty": "beginner",
+    "prerequisites": [
+      "lesson-02"
+    ],
+    "goals": [
+      "Montei Am e toquei a partir da 5ª corda",
+      "Fiz cinco trocas de Em para Am e de volta, sem apertar a mão em excesso",
+      "Toquei Em e Am por quatro contagens cada, em uma sequência completa no meu ritmo"
+    ],
+    "theory": "## Monte o Am\nDedo 1 na casa 1 da corda 2; dedo 2 na casa 2 da corda 4; dedo 3 na casa 2 da corda 3. Toque a partir da 5ª corda. A 6ª fica sem tocar.\n\n## Troque Em e Am\nCom a digitação desta aula, os dedos 2 e 3 mudam de corda juntos, mantendo o formato relativo. Nenhum dedo fica na mesma posição durante essa troca.\n\n## Exercício\nPrimeiro faça dez trocas sem metrônomo. Ouça as cordas de cada acorde. Depois escolha 50 ou 60 BPM e toque quatro batidas para baixo por acorde. Prepare a troca ao final do compasso.\n\nSe a mão não chega a tempo, reduza o BPM ou toque apenas no primeiro pulso de cada compasso. Complete quatro voltas e avalie quais trocas precisam de mais prática.",
+    "chords": [
+      {
+        "name": "Em",
+        "suffix": "minor",
+        "essential": true
+      },
+      {
+        "name": "Am",
+        "suffix": "minor",
+        "essential": true
+      }
+    ],
+    "practice": {
+      "type": "play-along",
+      "bpm": 60,
+      "timeSignature": "4/4",
+      "chords": [
+        "Em",
+        "Am"
+      ],
+      "pattern": "Quatro batidas para baixo por acorde"
+    },
+    "song": {
+      "title": "Estudo 2 de acordes",
+      "artist": "Exercício original do Guitar Study",
+      "chordPro": "[Em] 1   2   3   4\n[Am] 1   2   3   4"
+    }
+  },
+  {
+    "id": "lesson-04",
+    "title": "Acrescente C, G e D, um por vez",
+    "duration_minutes": 20,
+    "difficulty": "beginner",
+    "prerequisites": [
+      "lesson-03"
+    ],
+    "goals": [
+      "Montei C, G e D e conferi suas cordas uma por vez",
+      "Identifiquei a corda inicial de C, G, Am e D",
+      "Toquei uma sequência C, G, Am, D com quatro contagens por acorde no meu ritmo"
+    ],
+    "theory": "## Acrescente C, G e D\n- C: dedo 1 na casa 1 da corda 2, dedo 2 na casa 2 da corda 4, dedo 3 na casa 3 da corda 5. Toque da 5ª corda para baixo.\n- G: dedo 2 na casa 3 da corda 6, dedo 1 na casa 2 da corda 5, dedo 3 na casa 3 da corda 1. Toque as seis cordas.\n- D: dedo 1 na casa 2 da corda 3, dedo 2 na casa 2 da corda 1, dedo 3 na casa 3 da corda 2. Toque da 4ª corda para baixo.\n\n## Nomes dos acordes\nC é dó maior, G é sol maior, Am é lá menor e D é ré maior. As cifras maiúsculas indicam acordes maiores; o m indica menor.\n\n## Exercício\nAprenda um acorde novo por sessão, se precisar. Confira cada acorde corda por corda. Pratique separadamente C para G, G para Am, Am para D e D para C. Em seguida, toque um compasso de quatro pulsos por acorde, começando em 60 BPM. Aumente 5 BPM somente depois de quatro voltas com som claro e pulso estável.",
+    "chords": [
+      {
+        "name": "C",
+        "suffix": "major",
+        "essential": true
+      },
+      {
+        "name": "G",
+        "suffix": "major",
+        "essential": true
+      },
+      {
+        "name": "D",
+        "suffix": "major",
+        "essential": true
+      },
+      {
+        "name": "Em",
+        "suffix": "minor",
+        "essential": false
+      },
+      {
+        "name": "Am",
+        "suffix": "minor",
+        "essential": false
+      }
+    ],
+    "practice": {
+      "type": "play-along",
+      "bpm": 60,
+      "timeSignature": "4/4",
+      "chords": [
+        "C",
+        "G",
+        "Am",
+        "D"
+      ],
+      "pattern": "Quatro batidas para baixo por acorde"
+    },
+    "song": {
+      "title": "Estudo 3 de acordes",
+      "artist": "Exercício original do Guitar Study",
+      "chordPro": "[C] 1   2   3   4\n[G] 1   2   3   4\n[Am] 1   2   3   4\n[D] 1   2   3   4"
+    }
+  },
+  {
+    "id": "lesson-05",
+    "title": "Seu primeiro estudo completo",
+    "duration_minutes": 20,
+    "difficulty": "beginner",
+    "prerequisites": [
+      "lesson-04"
+    ],
+    "goals": [
+      "Toquei quatro batidas para baixo contando 1, 2, 3, 4 em cada acorde",
+      "Comecei G pela corda 6, D pela 4 e Am e C pela 5",
+      "Completei quatro sequências G, D, Am, C e identifiquei uma troca para revisar"
+    ],
+    "theory": "## Comece com a batida simples\nToque uma vez para baixo em cada número: 1, 2, 3, 4. Faça primeiro uma sequência de G, D, Am e C. Repita até ficar confortável. Complete quatro sequências quando estiver pronto.\n\n## Desafio opcional: batida com movimentos para cima\nConte oito subdivisões: 1 e 2 e 3 e 4 e. A mão alterna para baixo nos números e para cima nos \"e\", mesmo quando passa sem tocar.\n\n- 1: para baixo.\n- e de 1: passe para cima sem tocar.\n- 2: para baixo.\n- e de 2: para cima.\n- 3: passe para baixo sem tocar.\n- e de 3: para cima.\n- 4: para baixo.\n- e de 4: para cima.\n\nO resultado é baixo, baixo, cima, cima, baixo, cima. O metrônomo desta página marca os quatro pulsos; conte os \"e\" entre os cliques.\n\n## Estudo completo\nUse o estudo original G–D–Am–C abaixo. Toque um compasso por acorde e quatro voltas, totalizando 16 compassos. Primeiro use uma batida para baixo por pulso. Se a batida simples já estiver confortável, experimente o padrão de oito subdivisões a 60 BPM.\n\nAo tocar D, comece pela 4ª corda; em Am e C, pela 5ª; em G, pela 6ª. Depois de uma falha, retome no próximo pulso. Anote a troca mais difícil e pratique esse par isoladamente antes de repetir o estudo.",
+    "chords": [
+      {
+        "name": "G",
+        "suffix": "major",
+        "essential": true
+      },
+      {
+        "name": "D",
+        "suffix": "major",
+        "essential": true
+      },
+      {
+        "name": "Am",
+        "suffix": "minor",
+        "essential": true
+      },
+      {
+        "name": "C",
+        "suffix": "major",
+        "essential": true
+      }
+    ],
+    "practice": {
+      "type": "play-along",
+      "bpm": 60,
+      "timeSignature": "4/4",
+      "chords": [
+        "G",
+        "D",
+        "Am",
+        "C"
+      ],
+      "pattern": "Uma batida para baixo por número. Movimentos para cima são um desafio opcional."
+    },
+    "song": {
+      "title": "Estudo 4 de acordes",
+      "artist": "Exercício original do Guitar Study",
+      "chordPro": "[G] 1   2   3   4\n[D] 1   2   3   4\n[Am] 1   2   3   4\n[C] 1   2   3   4"
+    }
+  }
+]
+</script>
+
+  <script type="application/json" id="chords-data">
+  {
+    "C":  { "name": "C",  "frets": ["x", 3, 2, 0, 1, 0] },
+    "G":  { "name": "G",  "frets": [3, 2, 0, 0, 0, 3] },
+    "D":  { "name": "D",  "frets": ["x", "x", 0, 2, 3, 2] },
+    "Am": { "name": "Am", "frets": ["x", 0, 2, 2, 1, 0] },
+    "Em": { "name": "Em", "frets": [0, 2, 2, 0, 0, 0] }
+  }
+  </script>
+
+  <script src="markdown.js"></script>
+  <script src="chord-svg.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

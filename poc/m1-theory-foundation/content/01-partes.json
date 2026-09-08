@@ -1,0 +1,35 @@
+{
+  "id": "01-partes",
+  "titulo": "Conheça as partes do violão",
+  "objetivo": "Localize no seu violão as partes indicadas no desenho.",
+  "itens": [
+    {
+      "parte": "Corpo",
+      "descricao": "É a parte maior e oca do violão, apoiada no colo. Sua madeira vibra com as cordas e ajuda a produzir um som mais forte."
+    },
+    {
+      "parte": "Boca",
+      "descricao": "É a abertura na frente do corpo. Você pode começar tocando as cordas sobre essa abertura."
+    },
+    {
+      "parte": "Cavalete",
+      "descricao": "É a peça presa na frente do corpo onde as cordas ficam fixadas. Sobre ela, uma pequena peça chamada rastilho apoia as cordas."
+    },
+    {
+      "parte": "Braço",
+      "descricao": "É a parte comprida por onde passam as cordas. Você pressiona uma corda contra o braço para mudar a nota que ela produz."
+    },
+    {
+      "parte": "Trastes",
+      "descricao": "São as barrinhas de metal que atravessam o braço. As casas são os espaços entre elas. A primeira casa fica entre a pestana e o primeiro traste. Pressione a corda dentro da casa, perto do traste do lado do corpo."
+    },
+    {
+      "parte": "Pestana",
+      "descricao": "É a pequena peça que apoia e separa as cordas entre a cabeça e o braço. Ela marca o início da primeira casa."
+    },
+    {
+      "parte": "Cabeça / Tarraxas",
+      "descricao": "A cabeça fica na ponta do braço. As tarraxas são as peças que você gira para ajustar a afinação, isto é, deixar cada corda na nota esperada. Você conhecerá esse ajuste na página Afinador."
+    }
+  ]
+}

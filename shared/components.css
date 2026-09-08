@@ -1,0 +1,92 @@
+/* Shared typography, inputs, panels and feedback. Exercise graphics stay local. */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: 24px; background: var(--study-bg); }
+body.study-app {
+  margin: 0;
+  background: var(--study-bg);
+  color: var(--study-text);
+  font: 16px/1.65 var(--study-font);
+  min-height: 100vh;
+}
+.study-app h1 { font: 500 clamp(2rem, 3.4vw, 3rem)/1.16 var(--study-display); letter-spacing: -.025em; }
+.study-app h2 { font: 650 1.25rem/1.35 var(--study-font); color: var(--study-text); margin: 0 0 16px; }
+.study-app h3 { font: 650 1.075rem/1.45 var(--study-font); color: var(--study-text); margin: 24px 0 8px; }
+.study-app p { margin: 12px 0; }
+.study-app a { color: var(--study-accent); text-underline-offset: 4px; }
+.study-app a:hover { text-decoration-thickness: 2px; }
+.study-app :is(.muted, .hint, .caption, .objetivo) { color: var(--study-muted); }
+.study-app .eyebrow { color: var(--study-accent); font: 650 .75rem/1.5 var(--study-font); letter-spacing: .09em; text-transform: uppercase; }
+.study-app :is(ol, ul) { padding-left: 24px; }
+.study-app li { margin-block: 8px; }
+.study-app :is(button, input, select, textarea) { font: inherit; max-width: 100%; }
+.study-app :is(button, .btn, .study-action) {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--study-control-border);
+  border-radius: var(--study-control-radius);
+  background: var(--study-raised);
+  color: var(--study-text);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color 120ms, border-color 120ms;
+}
+.study-app :is(button, .btn, .study-action):hover:not(:disabled) { border-color: var(--study-accent); background: #353c31; }
+.study-app :is(button.primary, .btn.primary, .study-action, #play-btn, #start-drill, #start, #toggle, .study-log button) {
+  background: var(--study-accent);
+  color: var(--study-ink);
+  border-color: var(--study-accent);
+}
+.study-app :is(button.primary, .btn.primary, .study-action, #play-btn, #start-drill, #start, #toggle, .study-log button):hover:not(:disabled) {
+  background: var(--study-accent-hover);
+  border-color: var(--study-accent-hover);
+}
+.study-app :is(button, input, select):disabled { opacity: .5; cursor: default; }
+.study-app :is(input:not([type=checkbox]):not([type=range]), select, textarea) {
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--study-text);
+  background: var(--study-bg);
+  border: 1px solid var(--study-control-border);
+  border-radius: var(--study-control-radius);
+}
+.study-app textarea { width: 100%; resize: vertical; }
+.study-app input[type=range] { min-height: 44px; accent-color: var(--study-accent); }
+.study-app input[type=checkbox] { width: 20px; height: 20px; flex: none; accent-color: var(--study-accent); }
+.study-app label:has(input[type=checkbox]) { min-height: 44px; }
+.study-app fieldset { min-width: 0; border: 1px solid var(--study-border); border-radius: 8px; }
+.study-app :is(.controls, .audio-controls) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.study-app summary { min-height: 44px; padding: 12px 0; font-weight: 600; cursor: pointer; }
+.study-app details { border-top: 1px solid var(--study-border); margin-block: 16px; }
+.study-app details[open] > summary { color: var(--study-accent); }
+.study-app :is(.practice-panel, .practice-console, .tuner-console, .practice-box, .song-box) {
+  background: var(--study-bg);
+  border: 1px solid var(--study-border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.study-app :is(.practice-panel, .practice-console, .tuner-console) { border-top: 3px solid var(--study-accent); }
+.study-app :is(.practice-panel, .practice-console, .tuner-console) > :first-child { margin-top: 0; }
+.study-app :is(.practice-panel, .practice-console, .tuner-console) > :last-child { margin-bottom: 0; }
+.study-app :focus-visible { outline: 3px solid var(--study-accent-hover); outline-offset: 4px; }
+.study-app .study-skip { position: fixed; top: -150px; left: 16px; z-index: 1000; padding: 16px; color: var(--study-text); background: var(--study-bg); }
+.study-app .study-skip:focus { top: 8px; }
+.study-app > footer { max-width: var(--study-content-width); margin: auto; padding: 24px 32px; color: var(--study-muted); font-size: .875rem; text-align: left; }
+.study-app aside.study-shell { max-width: calc(var(--study-content-width) - 64px); width: calc(100% - 64px); margin: 0 auto 32px; padding: 16px 24px; border: 1px solid var(--study-border); border-radius: var(--study-radius); background: var(--study-panel); }
+.study-shell .study-log { display: grid; grid-template-columns: 140px minmax(0, 1fr) auto; gap: 16px; align-items: end; }
+.study-shell .study-log label { display: block; }
+.study-shell .study-log :is(input, textarea) { display: block; width: 100%; margin-top: 8px; }
+.study-shell details { border: 0; margin: 0; }
+.study-shell .study-task { color: var(--study-muted); }
+@media (max-width: 700px) {
+  .study-shell .study-log { grid-template-columns: 1fr; }
+  .study-app aside.study-shell { width: calc(100% - 32px); padding: 16px; }
+  .study-app :is(.practice-panel, .practice-console, .tuner-console) { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

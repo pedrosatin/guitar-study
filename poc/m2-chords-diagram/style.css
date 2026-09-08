@@ -1,0 +1,155 @@
+/* Exercise-specific presentation. Common controls and typography live in shared/. */
+.caption, .hint {
+  color: var(--muted);
+}
+
+section.trainer {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-radius: 8px;
+  scroll-margin-top: 1rem;
+}
+
+.lesson-route, .controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lesson-route a {
+  padding: 0.5rem 0px;
+}
+
+button.playing {
+  border-color: var(--accent);
+
+}
+
+label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controls label {
+  flex-direction: column;
+  align-items: start;
+}
+
+.card {
+  border-top: 1px solid var(--border);
+  padding-block: 1rem;
+}
+
+.card h3 {
+  margin-top: 0px;
+}
+
+.chord-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.diagram {
+  width: 220px;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.audio-status {
+  min-height: 1.6em;
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.grid .chord-layout {
+  display: block;
+}
+
+#drill-time {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#drill-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+  gap: 1rem;
+  margin-block: 1rem;
+}
+
+#drill-preview figure {
+  margin: 0px;
+}
+
+#drill-preview figcaption {
+  text-align: center;
+}
+
+#drill-result label {
+  margin-block: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .chord-layout, .grid {
+    display: block;
+  }
+
+  section.trainer {
+    padding: 1rem;
+  }
+
+  .diagram {
+    margin-bottom: 1rem;
+  }
+}
+
+.study-app[data-module="m2"] .chord-layout {
+  grid-template-columns: 200px minmax(0px, 1fr);
+  gap: 24px;
+}
+
+.study-app[data-module="m2"] .diagram {
+  width: 200px;
+}
+
+@media (min-width: 960px) {
+  .study-app[data-module="m2"] :is(#learn-em, #learn-am) .chord-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .study-app[data-module="m2"] :is(#learn-em, #learn-am) .diagram {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  .study-app[data-module="m2"] .chord-layout {
+    grid-template-columns: 1fr;
+  }
+}

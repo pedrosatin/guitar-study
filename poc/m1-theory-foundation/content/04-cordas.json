@@ -1,0 +1,43 @@
+{
+  "id": "04-cordas",
+  "titulo": "Encontre a primeira corda",
+  "objetivo": "Corda solta é aquela que você toca sem apertar nenhuma casa. A numeração começa na corda mais fina, a 1ª, e termina na mais grossa, a 6ª. Na afinação padrão, as duas se chamam Mi: a fina tem som agudo e a grossa tem som grave. Localize as duas no seu violão antes de seguir a tabela.",
+  "itens": [
+    {
+      "num": 6,
+      "corda": "Mi grave",
+      "nota": "E2",
+      "frequencia": 82.41
+    },
+    {
+      "num": 5,
+      "corda": "Lá",
+      "nota": "A2",
+      "frequencia": 110.0
+    },
+    {
+      "num": 4,
+      "corda": "Ré",
+      "nota": "D3",
+      "frequencia": 146.83
+    },
+    {
+      "num": 3,
+      "corda": "Sol",
+      "nota": "G3",
+      "frequencia": 196.0
+    },
+    {
+      "num": 2,
+      "corda": "Si",
+      "nota": "B3",
+      "frequencia": 246.94
+    },
+    {
+      "num": 1,
+      "corda": "Mi agudo",
+      "nota": "E4",
+      "frequencia": 329.63
+    }
+  ]
+}

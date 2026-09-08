@@ -1,0 +1,11 @@
+/* Preserve video aspect ratio: pointer coordinates use the whole canvas rectangle. */
+.media-stage { position: relative; width: 100%; aspect-ratio: 4 / 3; background: #050808; overflow: hidden; margin: 16px 0; border-radius: 8px; }
+.media-stage > video, .media-stage > canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.media-stage > video { transform: scaleX(-1); }
+.media-stage--mirror > canvas { transform: scaleX(-1); pointer-events: none; }
+.media-stage--mirror.unmirrored > video, .media-stage--mirror.unmirrored > canvas { transform: none; }
+/* The map draws mirrored coordinates itself; never mirror its canvas again. */
+.media-stage--map > canvas { transform: none; pointer-events: auto; touch-action: manipulation; }
+.media-controls label { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; min-height: 44px; }
+.media-controls input[type=checkbox] { margin-top: 4px; }
+.media-controls fieldset { margin: 16px 0; padding: 16px; }

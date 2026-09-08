@@ -1,0 +1,19 @@
+{
+  "id": "03-acordes",
+  "titulo": "O que é um acorde?",
+  "objetivo": "Entenda o que você vai praticar na página Acordes.",
+  "itens": [
+    {
+      "parte": "Várias notas",
+      "descricao": "Um acorde reúne notas diferentes que combinam entre si. Você pode tocar essas notas juntas ou uma por vez, em um dedilhado. Muitos acordes que aprenderemos usam três notas diferentes, mesmo quando você toca mais de três cordas."
+    },
+    {
+      "parte": "Nomes dos acordes",
+      "descricao": "As letras indicam o nome do acorde. Em significa Mi menor; Am significa Lá menor. O m minúsculo indica menor. E, sem o m, indica Mi maior."
+    },
+    {
+      "parte": "Diagramas e símbolos",
+      "descricao": "Na página Acordes, um desenho mostra quais cordas apertar e em quais casas. O símbolo 0 pede uma corda solta, sem pressionar nenhuma casa. O símbolo X pede que você deixe aquela corda sem tocar."
+    }
+  ]
+}

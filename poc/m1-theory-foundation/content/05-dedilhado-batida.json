@@ -1,0 +1,15 @@
+{
+  "id": "05-dedilhado-batida",
+  "titulo": "Dedilhado e batida",
+  "objetivo": "Conheça duas maneiras de tocar as cordas.",
+  "itens": [
+    {
+      "parte": "Dedilhado",
+      "descricao": "Você usa os dedos da mão que toca para puxar e soltar cordas individualmente. Em exercícios, P indica polegar, I indica indicador, M indica médio e A indica anular."
+    },
+    {
+      "parte": "Batida",
+      "descricao": "Você faz um movimento com os dedos ou uma palheta para tocar várias cordas em sequência rápida. O acorde indica quais cordas podem soar. A direção e o momento de cada movimento formam o ritmo."
+    }
+  ]
+}

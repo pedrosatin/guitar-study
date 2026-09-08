@@ -1,0 +1,163 @@
+/* Exercise-specific presentation. Common controls and typography live in shared/. */
+.eyebrow, .muted {
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+}
+
+select:disabled, input:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+#play-btn {
+  color: var(--bg);
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin: 0.6rem 0px 0.3rem;
+}
+
+select, textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0px;
+}
+
+.practice-console {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0px;
+}
+
+#playback-status {
+  margin: 0px 0px 0.75rem;
+  min-height: 1.6em;
+}
+
+.chord-cues {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.chord-cues > div {
+  min-width: 0px;
+}
+
+.chord-cues span {
+  display: block;
+  color: var(--muted);
+}
+
+.chord-cues strong {
+  display: block;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+#current-chord {
+  color: var(--accent);
+}
+
+#beat-instruction {
+  min-height: 1.6em;
+}
+
+.beats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0px 1rem;
+}
+
+.beat-dot {
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.beat-dot.on {
+  background: var(--accent); border: 3px solid var(--text);
+  color: var(--bg);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tempo-control {
+  margin: 1rem 0px;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 0.75rem 0px;
+  accent-color: var(--accent);
+  min-height: 24px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+
+.check {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  min-height: 44px;
+}
+
+code {
+  overflow-wrap: anywhere;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.word {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+  min-width: 0px;
+}
+
+.word.active {
+  border: 2px solid var(--accent);
+
+}
+
+.chord {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.lyric {
+  color: var(--muted);
+}
+
+.section h4 {
+  font-size: 1rem;
+}
+
+#custom-editor {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}

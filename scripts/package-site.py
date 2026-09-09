@@ -10,7 +10,7 @@ EXTENSIONS = {".html", ".css", ".js", ".json", ".svg", ".png", ".jpg", ".webp", 
 
 def main():
     tracked = subprocess.check_output(
-        ["git", "ls-files", "-z", "--", "index.html", "shared/", "poc/"], cwd=ROOT
+        ["git", "ls-files", "-z", "--", "index.html", "favicon.svg", "shared/", "poc/"], cwd=ROOT
     ).decode().split("\0")
     if DESTINATION.exists():
         shutil.rmtree(DESTINATION)

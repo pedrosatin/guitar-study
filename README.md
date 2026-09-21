@@ -1,107 +1,107 @@
-# Estudo de violão
+# Guitar Study
 
-Aplicação estática para aprender e praticar violão. O painel inicial reúne nove módulos, uma rotina sugerida de 15 minutos, meta diária e diário de prática. O projeto usa HTML, CSS e JavaScript, sem framework. Os arquivos de execução já estão incluídos no repositório.
+A static application for learning and practicing guitar. The home panel brings together nine modules, a suggested 15-minute routine, a daily goal, and a practice journal. The project uses plain HTML, CSS, and JavaScript, with no framework. The files needed to run it are already included in the repository.
 
-## Executar
+## Running it
 
-Clone o repositório e entre na pasta:
+Clone the repository and enter the folder:
 
 ```sh
 git clone https://github.com/pedrosatin/guitar-study.git
 cd guitar-study
 ```
 
-Com Python 3 instalado, execute:
+With Python 3 installed, run:
 
 ```sh
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Abra http://127.0.0.1:4173/. Também é possível executar `npm run dev`.
-Não abra os HTML diretamente por `file://`: os módulos JavaScript e o acesso à mídia precisam de um servidor. Microfone e câmera funcionam em localhost ou HTTPS, após permissão explícita.
+Open http://127.0.0.1:4173/. You can also run `npm run dev`.
+Don't open the HTML files directly via `file://`: the JavaScript modules and media access need a server. Microphone and camera only work on localhost or HTTPS, after explicit permission.
 
-## Páginas
+## Pages
 
-| Página | O que fazer |
+| Page | What to do |
 | --- | --- |
-| [Meu estudo](index.html) | Definir meta diária, escolher um módulo e consultar/exportar o diário |
-| [Fundamentos](poc/m1-theory-foundation/index.html) | Seguir a primeira aula, tocar uma corda solta e a primeira casa, conferir a prática e responder cinco perguntas |
-| [Acordes e trocas](poc/m2-chords-diagram/index.html) | Montar Em e Am, conferir cordas, trocar sem relógio e depois experimentar um minuto de treino |
-| [Cifras e metrônomo](poc/m3-chordpro-player/index.html) | Contar cliques, tocar Em e trocar Em/Am com preparação, pausa e autoavaliação |
-| [Afinador](poc/m4-pitch-detect/index.html) | Identificar cordas e tarraxas, ajustar uma corda por vez e acompanhar as seis conferências |
-| [Espelho de prática](poc/m5-mediapipe-mirror/index.html) | Observar cinco trocas Em/Am, conferir as cordas e revisar a prática com câmera opcional |
-| [Mapa do braço](poc/m6-fretdetection-marks/index.html) | Contar casas no desenho, conferir cinco posições e marcar referências com câmera opcional |
-| [Treino de ritmo](poc/m7-onset-rhythm/index.html) | Praticar por 30 segundos com preparação e conferir velocidade e regularidade por toques ou microfone |
-| [Plano de estudo](poc/m8-lesson-curator/index.html) | Organizar sessões de 5, 10 ou 20 minutos, retomar aulas e anotar o que repetir |
-| [Áudio para tablatura](poc/m9-audio-tabs/index.html) | Abrir ou gravar áudio, transcrever até 30 segundos, revisar posições e exportar TXT/MIDI |
+| [My study](index.html) | Set a daily goal, pick a module, and check/export the journal |
+| [Fundamentals](poc/m1-theory-foundation/index.html) | Follow the first lesson, play an open string and the first fret, check your practice, and answer five questions |
+| [Chords and changes](poc/m2-chords-diagram/index.html) | Form Em and Am, check the strings, switch without a clock, then try a one-minute drill |
+| [Chord sheets and metronome](poc/m3-chordpro-player/index.html) | Count clicks, play Em, and switch between Em/Am with lead-in, pause, and self-assessment |
+| [Tuner](poc/m4-pitch-detect/index.html) | Identify strings and tuning pegs, adjust one string at a time, and follow the six checks |
+| [Practice mirror](poc/m5-mediapipe-mirror/index.html) | Watch five Em/Am switches, check the strings, and review your practice with an optional camera |
+| [Fretboard map](poc/m6-fretdetection-marks/index.html) | Count frets in the diagram, check five positions, and mark references with an optional camera |
+| [Rhythm training](poc/m7-onset-rhythm/index.html) | Practice for 30 seconds with a lead-in, then check speed and consistency by taps or microphone |
+| [Study plan](poc/m8-lesson-curator/index.html) | Organize 5, 10, or 20-minute sessions, resume lessons, and note what to repeat |
+| [Audio to tablature](poc/m9-audio-tabs/index.html) | Open or record audio, transcribe up to 30 seconds, review note positions, and export TXT/MIDI |
 
-Comece por Fundamentos e Plano de estudo. Use o afinador antes de tocar e pratique trocas em um andamento em que consiga manter o som limpo.
+Start with Fundamentals and the Study plan. Use the tuner before playing, and practice changes at a tempo where you can keep the sound clean.
 
-## Progresso e privacidade
+## Progress and privacy
 
-O diário registra minutos informados por você e anotações. O treino completo de 60 segundos em Acordes adiciona um minuto automaticamente quando você salva o resultado. Evite registrar esse mesmo minuto novamente no formulário do fim da página.
+The journal records minutes you enter and your notes. Completing the full 60-second drill in Chords and changes adds a minute automatically when you save the result, so avoid logging that same minute again in the form at the bottom of the page.
 
-Dados ficam no armazenamento local deste navegador e desta origem. Limpar os dados do site apaga o progresso. O painel exporta meta e diário em JSON; resultados de quiz, autoavaliação de Fundamentos, recordes de trocas e conclusão das aulas têm armazenamento próprio e não entram nessa exportação. Não há sincronização entre dispositivos nem importação do arquivo.
+Data stays in this browser's and this origin's local storage. Clearing site data erases progress. The panel exports goal and journal data as JSON; quiz results, Fundamentals self-assessments, chord-change records, and lesson completion have their own storage and are not included in that export. There is no cross-device sync or import.
 
-Áudio e vídeo são processados no dispositivo. A câmera abre apenas por ação do estudante. Os pontos da mão usam MediaPipe, baixado de jsDelivr e Google quando solicitado. Falha no download permite continuar com o espelho e a marcação manual.
+Audio and video are processed on-device. The camera only opens on the student's action. Hand landmarks use MediaPipe, downloaded from jsDelivr and Google on demand. If the download fails, the mirror and manual marking still work.
 
-## Limites atuais
+## Current limitations
 
-- Os sons de referência são sintetizados.
-- O afinador analisa uma nota isolada. Acordes, ruído e harmônicos podem produzir leituras erradas.
-- Ritmo estima andamento e regularidade por aumentos de volume. Não mede a sincronização exata com uma gravação.
-- Cifras usam duração fixa por acorde para exercícios, sem inferir o ritmo de uma música.
-- Câmera e marcações são referências visuais experimentais. Não avaliam postura, pressão dos dedos, corda tocada ou correção de acordes.
-- Som limpo e conclusão dos exercícios dependem de autoavaliação.
-- Testes com mídia simulada não comprovam precisão com um instrumento real.
+- Reference sounds are synthesized.
+- The tuner analyzes a single isolated note. Chords, noise, and harmonics can produce wrong readings.
+- Rhythm training estimates tempo and consistency from volume spikes. It does not measure exact sync with a recording.
+- Chord sheets use a fixed duration per chord for exercises, without inferring the song's actual rhythm.
+- Camera and marking are experimental visual references. They do not assess posture, finger pressure, string played, or chord correctness.
+- Clean sound and exercise completion rely on self-assessment.
+- Tests with simulated media don't prove accuracy with a real instrument.
 
-## Testes
+## Tests
 
-Use Node.js 20 ou superior e npm para as ferramentas de teste. A aplicação funciona com os recursos já incluídos. O reconhecedor tem um bundle JavaScript gerado e um modelo local.
+Use Node.js 20 or later and npm for the test tooling. The app itself runs on the files already included in the repo. The transcriber has a generated JavaScript bundle and a local model.
 
 ```sh
 npm ci
 npm test
-# Com o servidor ligado em outro terminal e Chromium instalado:
+# With the server running in another terminal and Chromium installed:
 npm run test:browser
 npm run test:a11y
 npm run test:transcriber
-# Opcional, sessão gráfica Linux/X11 com xdotool:
+# Optional, Linux/X11 graphical session with xdotool:
 npm run test:zoom
 ```
 
-Os testes de navegador usam `/usr/bin/chromium`. Para outro caminho, defina `CHROMIUM_PATH`. Para outro servidor, defina `TEST_BASE_URL`. Capturas ficam em `test-results/`.
+Browser tests use `/usr/bin/chromium`. Set `CHROMIUM_PATH` for a different path, or `TEST_BASE_URL` for a different server. Screenshots are saved to `test-results/`.
 
-## Estrutura e desenvolvimento
+## Structure and development
 
-- `index.html`: painel, meta e histórico de prática.
-- `poc/`: nove módulos independentes, com HTML, estilos, scripts e recursos próprios.
-- `shared/`: catálogo de módulos, navegação, diário, armazenamento, câmera e estilos comuns.
-- `tests/`: testes de lógica, áudio e integração no navegador.
+- `index.html`: the panel, goal, and practice history.
+- `poc/`: nine independent modules, each with its own HTML, styles, scripts, and assets.
+- `shared/`: module catalog, navigation, journal, storage, camera, and common styles.
+- `tests/`: logic, audio, and browser integration tests.
 
-O arquivo `shared/study.css` reúne os estilos compartilhados. Cores, tipografia e espaçamentos ficam em `shared/tokens.css`. Os estilos específicos de cada exercício permanecem no diretório do módulo.
+`shared/study.css` holds the shared styles. Colors, typography, and spacing live in `shared/tokens.css`. Exercise-specific styles stay in each module's own directory.
 
-A navegação é montada por `shared/shell.js` a partir de `shared/catalog.js`. O diário usa `shared/progress.js`; os módulos podem manter estados próprios de exercícios. Preserve as chaves de armazenamento ao alterar o formato dos dados ou implemente uma migração.
+Navigation is assembled by `shared/shell.js` from `shared/catalog.js`. The journal uses `shared/progress.js`; modules may keep their own exercise state. Preserve storage keys when changing the data format, or implement a migration.
 
-Para contribuir, crie uma branch, implemente a alteração e execute os testes afetados. Mudanças em componentes compartilhados devem passar por `npm test` e `npm run test:browser`. Use `npm run test:visual` para conferir o percurso entre páginas em desktop e mobile emulado.
+To contribute, create a branch, implement the change, and run the affected tests. Changes to shared components should pass `npm test` and `npm run test:browser`. Use `npm run test:visual` to check the flow between pages on desktop and emulated mobile.
 
-Os testes usam perfis de navegador descartáveis. Áudio e câmera são exercitados com dados sintéticos; a precisão com instrumento real e a compreensão das instruções precisam de validação com pessoas.
+Tests use disposable browser profiles. Audio and camera are exercised with synthetic data; accuracy with a real instrument and clarity of the instructions still need validation with real people.
 
 ## Deploy
 
-Acesse https://pedrosatin.github.io/guitar-study/.
+Available at https://pedrosatin.github.io/guitar-study/.
 
-O GitHub Actions publica automaticamente cada push na branch `main`. Também é possível executar o workflow "Deploy GitHub Pages" manualmente. O repositório permanece privado; o site e seus arquivos de execução são públicos.
+GitHub Actions publishes automatically on every push to `main`. You can also run the "Deploy GitHub Pages" workflow manually. The repository is public; the deployed site and its runtime files are public as well.
 
-O script `python3 scripts/package-site.py` prepara `_site/` apenas com arquivos rastreados da aplicação, em `index.html`, `shared/` e `poc/`. Não há compilação, backend ou banco de dados no servidor. Para incluir novos recursos, adicione-os ao Git e confira as extensões aceitas pelo script. O diretório `_site/` é gerado e ignorado pelo Git.
+The `python3 scripts/package-site.py` script prepares `_site/` with only the tracked application files, from `index.html`, `shared/`, and `poc/`. There's no build step, backend, or database on the server. To add new assets, commit them to Git and check the extensions accepted by the script. The `_site/` directory is generated and gitignored.
 
-GitHub Pages fornece HTTPS. Microfone e câmera continuam sujeitos à permissão do navegador. O progresso fica no navegador de cada pessoa; os registros feitos em localhost não são transferidos para o site publicado.
+GitHub Pages provides HTTPS. Microphone and camera remain subject to browser permission. Progress stays in each person's browser; records made on localhost are not transferred to the published site.
 
-## Transcrição experimental
+## Experimental transcription
 
-O módulo `poc/m9-audio-tabs/` usa Basic Pitch 1.0.1 e TensorFlow.js 3.21.0, com licença Apache-2.0. `engine.js` e `model/` são servidos pelo próprio site somente ao iniciar a análise. A execução usa JavaScript e CPU em um Web Worker, sem WebAssembly ou envio de áudio. Cada análise encerra o worker para liberar o modelo e os tensores.
+The `poc/m9-audio-tabs/` module uses Basic Pitch 1.0.1 and TensorFlow.js 3.21.0, both under the Apache-2.0 license. `engine.js` and `model/` are served by the site itself, only when an analysis starts. Execution runs in JavaScript on the CPU inside a Web Worker, with no WebAssembly and no audio sent anywhere. Each analysis terminates the worker afterward to free the model and its tensors.
 
-Para regenerar o bundle e copiar o modelo após mudanças no motor:
+To regenerate the bundle and copy the model after engine changes:
 
 ```sh
 npm ci
@@ -109,8 +109,12 @@ npm run build:transcriber
 npm run test:transcriber
 ```
 
-O código-fonte do worker fica em `scripts/transcription-worker.js`; o build fica em `scripts/build-transcriber.cjs`. Versione o bundle gerado, o modelo e suas licenças junto com as alterações. O deploy apenas copia esses arquivos.
+The worker's source lives in `scripts/transcription-worker.js`; the build script is `scripts/build-transcriber.cjs`. Commit the generated bundle, the model, and their licenses along with your changes. Deployment only copies these files.
 
-Arquivos aceitos dependem dos codecs do navegador, até 20 MB e 5 minutos. A análise usa um trecho de 0,5 a 30 segundos convertido para mono a 22050 Hz. Há cancelamento e limite de 3 minutos de processamento. A gravação para em 30 segundos, ao ocultar a aba ou sair da página. Áudio e resultados não são persistidos; exporte antes de fechar.
+Accepted files depend on the browser's codecs, up to 20 MB and 5 minutes. Analysis uses a 0.5-to-30-second slice converted to mono at 22050 Hz, with a 3-minute processing cap and cancellation support. Recording stops after 30 seconds, or when the tab is hidden or the page is closed. Audio and results are not persisted, so export before closing.
 
-`tablature.js` sugere posições na afinação padrão, evita ocupar uma corda com notas sobrepostas e deixa notas sem posição disponíveis para revisão. Mudanças manuais conflitantes são sinalizadas. A revisão permite trocar corda/casa e excluir notas; não inclui inserção de notas nem edição de altura/duração. TXT exibe segundos sem notação rítmica; MIDI preserva os tempos detectados, sem inferir compassos ou técnicas de execução. Banda completa não passa por separação de instrumentos.
+`tablature.js` suggests positions in standard tuning, avoids stacking overlapping notes on one string, and leaves unplaceable notes available for review. Conflicting manual changes are flagged. The review view lets you change string/fret and delete notes; it doesn't support inserting notes or editing pitch/duration. TXT export shows seconds without rhythmic notation; MIDI preserves detected timing without inferring measures or playing technique. Full-band audio doesn't go through instrument separation.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "Exerc\u00edcios de viol\u00e3o no navegador",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
     "test": "node --test tests/progress.test.cjs tests/metronome.cjs && node tests/audio.cjs",

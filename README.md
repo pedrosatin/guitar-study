@@ -115,6 +115,14 @@ Accepted files depend on the browser's codecs, up to 20 MB and 5 minutes. Analys
 
 `tablature.js` suggests positions in standard tuning, avoids stacking overlapping notes on one string, and leaves unplaceable notes available for review. Conflicting manual changes are flagged. The review view lets you change string/fret and delete notes; it doesn't support inserting notes or editing pitch/duration. TXT export shows seconds without rhythmic notation; MIDI preserves detected timing without inferring measures or playing technique. Full-band audio doesn't go through instrument separation.
 
+## Contributing
+
+Report problems and suggest improvements at https://github.com/pedrosatin/guitar-study/issues.
+
+## Author
+
+Criado por [@pedrosatin](https://github.com/pedrosatin)
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
